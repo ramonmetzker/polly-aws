@@ -49,7 +49,7 @@ class AmazonAI_Common
 		['code' => 'no', 'name' => 'Norwegian', 'translatable' => '1', 'polly' => '1'],
 		['code' => 'fa', 'name' => 'Persian', 'translatable' => '1', 'polly' => ''],
 		['code' => 'pl', 'name' => 'Polish', 'translatable' => '1', 'polly' => '1'],
-		['code' => 'pt', 'name' => 'Portuguese', 'translatable' => '1', 'polly' => '1'],
+		['code' => 'pt', 'name' => 'Português', 'translatable' => '1', 'polly' => '1'],
 		['code' => 'ps', 'name' => 'Pushto', 'translatable' => '1', 'polly' => '0'],
 		['code' => 'ro', 'name' => 'Romanian', 'translatable' => '1', 'polly' => '1'],
 		['code' => 'sr', 'name' => 'Serbian', 'translatable' => '1', 'polly' => '0'],
@@ -490,7 +490,7 @@ class AmazonAI_Common
 	public function is_polly_enabled_for_new_posts() {
 		if ( $this->is_polly_enabled() ) {
 			$default_configuration = get_option( 'amazon_polly_defconf' );
-			if ( 'Amazon Polly enabled' === $default_configuration ) {
+			if ( 'Polly habilitada' === $default_configuration ) {
 				return true;
 			} else {
 				return false;

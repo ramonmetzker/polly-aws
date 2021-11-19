@@ -364,16 +364,16 @@ class AmazonAI_PollyConfiguration {
             if ( !$this->common->is_polly_news_enabled()) {
               echo '<input type="checkbox" name="amazon_polly_conversational" id="amazon_polly_conversational" ' . $this->common->is_polly_conversational_enabled() . '> ';
             } else {
-              echo '<p class="description" for="amazon_polly_conversational">Only one style can be used</p>';
+              echo '<p class="description" for="amazon_polly_conversational">Somente um estilo pode ser usado</p>';
             }
           } else {
-            echo '<p class="description" for="amazon_polly_conversational">Option not supported for this voice</p>';
+            echo '<p class="description" for="amazon_polly_conversational">Opção não suportada para essa voz</p>';
           }
         } else {
-          echo '<p class="description" for="amazon_polly_conversational">Neural needs to be enabled</p>';
+          echo '<p class="description" for="amazon_polly_conversational">Neural precisa estar habilitado</p>';
         }
       } else {
-        echo '<p class="description" for="amazon_polly_conversational">Option not supported in this region</p>';
+        echo '<p class="description" for="amazon_polly_conversational">Opção não suportada para a sua região</p>';
       }
 
     }
@@ -393,7 +393,7 @@ class AmazonAI_PollyConfiguration {
 				$checked = ' checked ';
 			}
 			echo '<input type="checkbox" name="amazon_polly_autoplay" id="amazon_polly_autoplay" ' . esc_attr( $checked ) . '> ';
-			echo '<p class="description" for="amazon_polly_autoplay">Automatically play audio content when page loads</p>';
+			echo '<p class="description" for="amazon_polly_autoplay">Inicia o áudio automaticamente quando a página carrega</p>';
 
 	}
 
@@ -405,7 +405,7 @@ class AmazonAI_PollyConfiguration {
 	public function defconf_gui() {
 
 			$selected_defconf = get_option( 'amazon_polly_defconf' );
-			$defconf_values   = [ 'Amazon Polly enabled', 'Amazon Polly disabled' ];
+			$defconf_values   = [ 'Polly habilitada', 'Polly desabilitada' ];
 
 			echo '<select name="amazon_polly_defconf" id="amazon_polly_defconf" >';
 			foreach ( $defconf_values as $defconf ) {
@@ -500,7 +500,7 @@ public function playerlabel_gui() {
 
 			$lexicons = $this->common->get_lexicons();
 			echo '<input type="text" class="regular-text" name="amazon_polly_lexicons" id="amazon_polly_lexicons" value="' . esc_attr( $lexicons ) . '"> ';
-			echo '<p class="description" for="amazon_polly_lexicons">Specify the lexicons names, seperated by spaces, that you have uploaded to your AWS account</p>';
+			echo '<p class="description" for="amazon_polly_lexicons">Especifique os nomes dos lexicos (separados por espaço), que você configurou na sua conta AWS</p>';
 
 	}
 
@@ -536,7 +536,7 @@ public function playerlabel_gui() {
 
         echo '<input type="checkbox" name="amazon_ai_medialibrary_enabled" id="amazon_ai_medialibrary_enabled" ' . esc_attr( $checked ) . '> ';
       } else {
-        echo '<p class="description">Local storage needs to be enabled</p>';
+        echo '<p class="description">Armazenamento local precisa estar habilitado</p>';
       }
 
   }
@@ -560,7 +560,7 @@ public function playerlabel_gui() {
 
 				echo '<input type="checkbox" name="amazon_polly_ssml" id="amazon_polly_ssml" ' . esc_attr( $checked ) . '> ';
 			} else {
-				echo '<p class="description">Amazon S3 storage needs to be enabled</p>';
+				echo '<p class="description">Armazenamento da Amazon S3 precisa estar habilitado</p>';
 			}
 
 	}
@@ -572,7 +572,7 @@ public function playerlabel_gui() {
 	 */
 	public function auto_breaths_gui() {
 	    echo '<input type="checkbox" name="amazon_polly_auto_breaths" id="amazon_polly_auto_breaths" ' . $this->common->checked_validator( 'amazon_polly_auto_breaths' ) . '> ';
-	    echo '<p class="description" for="amazon_polly_auto_breaths">Creates breathing noises at appropriate intervals</p>';
+	    echo '<p class="description" for="amazon_polly_auto_breaths">Cria sons de respiração em intervalos apropriados</p>';
 	}
 
 	/**
@@ -623,7 +623,7 @@ public function playerlabel_gui() {
 	{
 			$access_key = get_option('amazon_polly_access_key');
 			echo '<input type="text" class="regular-text" name="amazon_polly_access_key" id="amazon_polly_access_key" value="' . esc_attr($access_key) . '" autocomplete="off"> ';
-			echo '<p class="description" id="amazon_polly_access_key">Required only if you aren\'t using IAM roles</p>';
+			echo '<p class="description" id="amazon_polly_access_key">Obrigatório apenas se não está usando permissões IAM</p>';
 
 	}
 

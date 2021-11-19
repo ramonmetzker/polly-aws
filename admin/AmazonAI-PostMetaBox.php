@@ -66,7 +66,7 @@ class AmazonAI_PostMetaBox {
 
       $post_options_visibility = '';
 
-      echo '<p><input type="checkbox" name="amazon_polly_enable" id="amazon_polly_enable" value="1"  ' . esc_attr($polly_checked) . '/><label for="amazon_polly_enable">Enable Text-To-Speech (Amazon Polly)</label> </p>';
+      echo '<p><input type="checkbox" name="amazon_polly_enable" id="amazon_polly_enable" value="1"  ' . esc_attr($polly_checked) . '/><label for="amazon_polly_enable">Habilitar narração para este post.</label> </p>';
       echo '<div id="amazon_polly_post_options" style="' . esc_attr($post_options_visibility) . '">';
 
       if (! function_exists('sort_polly_voices')) {
@@ -88,7 +88,7 @@ class AmazonAI_PostMetaBox {
 
       usort($voices['Voices'], 'sort_polly_voices');
 
-      echo '<p>Voice name: <select name="amazon_polly_voice_id" id="amazon_polly_voice_id" >';
+      echo '<p>Voz: <select name="amazon_polly_voice_id" id="amazon_polly_voice_id" >';
       foreach ($voices['Voices'] as $voice) {
         if (strpos($voice['LanguageName'], $language_name) !== false) {
           echo '<option value="' . esc_attr($voice['Id']) . '" ';
@@ -114,7 +114,7 @@ class AmazonAI_PostMetaBox {
   public function display_translate_gui($post) {
     $post_source_language = get_post_meta($post->ID, 'amazon_ai_source_language', true);
     if (! empty($post_source_language)) {
-      echo '<p><input type="checkbox" name="amazon_ai_deactive_translation" id="amazon_ai_deactive_translation" value="1"/><label for="amazon_polly_enable">Deactive Translation</label> </p>';
+      echo '<p><input type="checkbox" name="amazon_ai_deactive_translation" id="amazon_ai_deactive_translation" value="1"/><label for="amazon_polly_enable">Desabilitar Tradução</label> </p>';
     }
 
     // Check if Translate (Amazon Translate) functionality is enabled.
@@ -137,14 +137,14 @@ class AmazonAI_PostMetaBox {
 
       echo '</div>';
     }
-    echo '<p><button type="button" class="button" id="amazon_polly_price_checker_button" >How much will this cost to convert?</button></p>';
+    echo '<p><button type="button" class="button" id="amazon_polly_price_checker_button" >Quanto vai custar para converter?</button></p>';
     echo '<div id="amazon_ai_plugin_cost_info">';
     if ($this->common->is_polly_enabled()) {
-      echo '<p><b>-> Text-To-Speech Functionality</b><p>';
-      echo '<p>For Amazon Polly’s Standard voices, <b>the free tier includes 5 million characters per month</b> for speech or Speech Marks requests, for the first 12 months, starting from your first request for speech. For Neural voices, the free tier includes 1 million characters per month for speech or Speech Marks requests, for the first 12 months, starting from your first request. <p>';
-      echo '<p>You are billed monthly for the number of characters of text that you processed. Amazon Polly’s Standard voices are priced at $4.00 per 1 million characters for speech or Speech Marks requests (when outside the free tier). Amazon Polly’s Neural voices are priced at $16.00 per 1 million characters for speech or Speech Marks requested (when outside the free tier). <p>';
-      echo '<p>When you update your post, plugin needs to conver the whole content to audio again.  <p>';
-      echo '<p>You can find full information about pricing of Amazon Polly here: https://aws.amazon.com/polly/pricing/ <p>';
+      echo '<p><b>-> Funcionalidade Text-to-speech</b><p>';
+      echo '<p>Para as vozes padrão da Amazon Polly, <b>o nível grátis inclui 5 milhões de caracteres por mês</b> para requisições de narração, pelos primeiros 12 meses, começando na sua primeira requisição . Para vozes neurais, o nível grátis inclui 1 milhão de caracteres por mês para requisições de narração, pelos primeiros 12 meses, começando na primeira requisição. <p>';
+      echo '<p>Você é cobrado mensalmente pelo número de caracteres processados. As vozes padrão da Amazon Polly tem o preço de U$4.00 por 1 milhão de caracteres por requisição de narração (fora do nível grátis). As vozes neurais da Amazon Polly tem o preço de U$16.00 por 1 milhão de caracteres por requisição de narração (fora do nível grátis) <p>';
+      echo '<p>Quando você atualiza o post, o plugin irá converter todo o conteúdo novamente, gerando uma nova requisição.  <p>';
+      echo '<p>Você pode encontrar mais informações sobre os preços da Amazon Polly aqui: https://aws.amazon.com/polly/pricing/ <p>';
     }
     if ($this->common->is_translation_enabled()) {
       echo '<p><b>-> Translate Functionality</b><p>';

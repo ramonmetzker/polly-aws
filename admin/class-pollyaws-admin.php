@@ -309,10 +309,10 @@ class Pollyaws_Admin {
 
 		// ************************************************* *
 		// ***************** GENERAL SECTION **************** *
-		add_settings_section( 'amazon_polly_general', __( 'General', 'pollyaws' ), array( $this, 'amazon_polly_general_cb' ), $this->plugin_name );
-		add_settings_field( 'amazon_polly_access_key', __( 'AWS access key:', 'pollyaws' ), array( $this, 'amazon_polly_access_key_cb' ), $this->plugin_name, 'amazon_polly_general', array( 'label_for' => 'amazon_polly_access_key' ) );
-		add_settings_field( 'amazon_polly_secret_key', __( 'AWS secret key:', 'pollyaws' ), array( $this, 'amazon_polly_secret_key_cb' ), $this->plugin_name, 'amazon_polly_general', array( 'label_for' => 'amazon_polly_secret_key' ) );
-		add_settings_field( 'amazon_polly_region', __( 'AWS Region:', 'pollyaws' ), array( $this, 'amazon_polly_region_cb' ), $this->plugin_name, 'amazon_polly_general', array( 'label_for' => 'amazon_polly_region' ) );
+		add_settings_section( 'amazon_polly_general', __( 'Geral', 'pollyaws' ), array( $this, 'amazon_polly_general_cb' ), $this->plugin_name );
+		add_settings_field( 'amazon_polly_access_key', __( 'Access key da AWS:', 'pollyaws' ), array( $this, 'amazon_polly_access_key_cb' ), $this->plugin_name, 'amazon_polly_general', array( 'label_for' => 'amazon_polly_access_key' ) );
+		add_settings_field( 'amazon_polly_secret_key', __( 'Secret key da AWS:', 'pollyaws' ), array( $this, 'amazon_polly_secret_key_cb' ), $this->plugin_name, 'amazon_polly_general', array( 'label_for' => 'amazon_polly_secret_key' ) );
+		add_settings_field( 'amazon_polly_region', __( 'Região AWS:', 'pollyaws' ), array( $this, 'amazon_polly_region_cb' ), $this->plugin_name, 'amazon_polly_general', array( 'label_for' => 'amazon_polly_region' ) );
 
 		// ************************************************* *
 		// ***************** PLAYER SECTION **************** *
@@ -324,19 +324,19 @@ class Pollyaws_Admin {
 
 		// ************************************************* *
 		// ************* POLLY SETTINGS SECTION ************ *
-		add_settings_section( 'amazon_polly_pollysettings', __( 'Amazon Polly settings', 'pollyaws' ), array( $this, 'amazon_polly_pollysettings_cb' ), $this->plugin_name );
-		add_settings_field( 'amazon_polly_sample_rate', __( 'Sample rate:', 'pollyaws' ), array( $this, 'amazon_polly_sample_rate_cb' ), $this->plugin_name, 'amazon_polly_pollysettings', array( 'label_for' => 'amazon_polly_sample_rate' ) );
-		add_settings_field( 'amazon_polly_voice_id', __( 'Voice name:', 'pollyaws' ), array( $this, 'amazon_polly_voice_id_cb' ), $this->plugin_name, 'amazon_polly_pollysettings', array( 'label_for' => 'amazon_polly_voice_id' ) );
-		add_settings_field( 'amazon_polly_auto_breaths', __( 'Automated breaths:', 'pollyaws' ), array( $this, 'amazon_polly_auto_breaths_cb' ), $this->plugin_name, 'amazon_polly_pollysettings', array( 'label_for' => 'amazon_polly_auto_breaths_id' ) );
-		add_settings_field( 'amazon_polly_ssml', __( 'Enable SSML support:', 'pollyaws' ), array( $this, 'amazon_polly_ssml_cb' ), $this->plugin_name, 'amazon_polly_pollysettings', array( 'label_for' => 'amazon_polly_ssml' ) );
+		add_settings_section( 'amazon_polly_pollysettings', __( 'Configurações Amazon Polly', 'pollyaws' ), array( $this, 'amazon_polly_pollysettings_cb' ), $this->plugin_name );
+		add_settings_field( 'amazon_polly_sample_rate', __( 'Taxa de amostragem:', 'pollyaws' ), array( $this, 'amazon_polly_sample_rate_cb' ), $this->plugin_name, 'amazon_polly_pollysettings', array( 'label_for' => 'amazon_polly_sample_rate' ) );
+		add_settings_field( 'amazon_polly_voice_id', __( 'Voz:', 'pollyaws' ), array( $this, 'amazon_polly_voice_id_cb' ), $this->plugin_name, 'amazon_polly_pollysettings', array( 'label_for' => 'amazon_polly_voice_id' ) );
+		add_settings_field( 'amazon_polly_auto_breaths', __( 'Respiração automárica:', 'pollyaws' ), array( $this, 'amazon_polly_auto_breaths_cb' ), $this->plugin_name, 'amazon_polly_pollysettings', array( 'label_for' => 'amazon_polly_auto_breaths_id' ) );
+		add_settings_field( 'amazon_polly_ssml', __( 'Habilitar suporte à SSML:', 'pollyaws' ), array( $this, 'amazon_polly_ssml_cb' ), $this->plugin_name, 'amazon_polly_pollysettings', array( 'label_for' => 'amazon_polly_ssml' ) );
 		add_settings_field( 'amazon_polly_lexicons', __( 'Lexicons:', 'pollyaws' ), array( $this, 'amazon_polly_lexicons_cb' ), $this->plugin_name, 'amazon_polly_pollysettings', array( 'label_for' => 'amazon_polly_lexicons' ) );
-		add_settings_field( 'amazon_polly_speed', __( 'Audio speed [%]:', 'pollyaws' ), array( $this, 'amazon_polly_speed_cb' ), $this->plugin_name, 'amazon_polly_pollysettings', array( 'label_for' => 'amazon_polly_speed' ) );
+		add_settings_field( 'amazon_polly_speed', __( 'Velocidade do áudio[%]:', 'pollyaws' ), array( $this, 'amazon_polly_speed_cb' ), $this->plugin_name, 'amazon_polly_pollysettings', array( 'label_for' => 'amazon_polly_speed' ) );
 
 		// ************************************************* *
 		// ************** STORAGE SECTION ************** *
-		add_settings_section( 'amazon_polly_storage', __( 'Cloud storage', 'pollyaws' ), array( $this, 'amazon_polly_storage_cb' ), $this->plugin_name );
-		add_settings_field( 'amazon_polly_s3', __( 'Store audio in Amazon S3:', 'pollyaws' ), array( $this, 'amazon_polly_s3_cb' ), $this->plugin_name, 'amazon_polly_storage', array( 'label_for' => 'amazon_polly_s3' ) );
-		add_settings_field( 'amazon_polly_cloudfront', __( 'Amazon CloudFront (CDN) domain name:', 'pollyaws' ), array( $this, 'amazon_polly_cloudfront_cb' ), $this->plugin_name, 'amazon_polly_storage', array( 'label_for' => 'amazon_polly_cloudfront' ) );
+		add_settings_section( 'amazon_polly_storage', __( 'Armazenamento em Cloud', 'pollyaws' ), array( $this, 'amazon_polly_storage_cb' ), $this->plugin_name );
+		add_settings_field( 'amazon_polly_s3', __( 'Armazenar áudio na Amazon S3:', 'pollyaws' ), array( $this, 'amazon_polly_s3_cb' ), $this->plugin_name, 'amazon_polly_storage', array( 'label_for' => 'amazon_polly_s3' ) );
+		add_settings_field( 'amazon_polly_cloudfront', __( 'Domínio Amazon CloudFront (CDN):', 'pollyaws' ), array( $this, 'amazon_polly_cloudfront_cb' ), $this->plugin_name, 'amazon_polly_storage', array( 'label_for' => 'amazon_polly_cloudfront' ) );
 
 		// ************************************************* *
 		// ************** PODCAST SECTION ************** *
@@ -352,11 +352,11 @@ class Pollyaws_Admin {
 
 		// ************************************************* *
 		// ************** ADDITIONAL SECTION ************** *
-		add_settings_section( 'amazon_polly_additional', __( 'Additional configuration', 'pollyaws' ), array( $this, 'amazon_polly_additional_cb' ), $this->plugin_name );
-		add_settings_field( 'amazon_polly_update_all', __( 'Bulk update all posts:', 'pollyaws' ), array( $this, 'amazon_polly_update_all_cb' ), $this->plugin_name, 'amazon_polly_additional', array( 'label_for' => 'amazon_polly_update_all' ) );
-		add_settings_field( 'amazon_polly_add_post_title', __( 'Add post title to audio:', 'pollyaws' ), array( $this, 'amazon_polly_add_post_title_cb' ), $this->plugin_name, 'amazon_polly_additional', array( 'label_for' => 'amazon_polly_add_post_title' ) );
-		add_settings_field( 'amazon_polly_add_post_excerpt', __( 'Add post excerpt to audio:', 'pollyaws' ), array( $this, 'amazon_polly_add_post_excerpt_cb' ), $this->plugin_name, 'amazon_polly_additional', array( 'label_for' => 'amazon_polly_add_post_excerpt' ) );
-		add_settings_field( 'amazon_polly_posttypes', __( 'Post types:', 'pollyaws' ), array( $this, 'amazon_polly_posttypes_cb' ), $this->plugin_name, 'amazon_polly_additional', array( 'label_for' => 'amazon_polly_posttypes' ) );
+		add_settings_section( 'amazon_polly_additional', __( 'Configuração adicional', 'pollyaws' ), array( $this, 'amazon_polly_additional_cb' ), $this->plugin_name );
+		add_settings_field( 'amazon_polly_update_all', __( 'Atualizar todos os posts:', 'pollyaws' ), array( $this, 'amazon_polly_update_all_cb' ), $this->plugin_name, 'amazon_polly_additional', array( 'label_for' => 'amazon_polly_update_all' ) );
+		add_settings_field( 'amazon_polly_add_post_title', __( 'Adicionar título do post ao áudio:', 'pollyaws' ), array( $this, 'amazon_polly_add_post_title_cb' ), $this->plugin_name, 'amazon_polly_additional', array( 'label_for' => 'amazon_polly_add_post_title' ) );
+		add_settings_field( 'amazon_polly_add_post_excerpt', __( 'Adicionar excerto do post ao áudio:', 'pollyaws' ), array( $this, 'amazon_polly_add_post_excerpt_cb' ), $this->plugin_name, 'amazon_polly_additional', array( 'label_for' => 'amazon_polly_add_post_excerpt' ) );
+		add_settings_field( 'amazon_polly_posttypes', __( 'Tipos de post (post types):', 'pollyaws' ), array( $this, 'amazon_polly_posttypes_cb' ), $this->plugin_name, 'amazon_polly_additional', array( 'label_for' => 'amazon_polly_posttypes' ) );
 
 		// ************************************************* *
 		// ************** TRANSLATION SECTION ************** *
@@ -838,7 +838,7 @@ class Pollyaws_Admin {
 	public function amazon_polly_access_key_cb() {
 		$access_key = get_option( 'amazon_polly_access_key' );
 		echo '<input type="text" class="regular-text" name="amazon_polly_access_key" id="amazon_polly_access_key" value="' . esc_attr( $access_key ) . '" autocomplete="off"> ';
-		echo '<p class="description" id="amazon_polly_access_key">Required only if you aren\'t using IAM roles</p>';
+		echo '<p class="description" id="amazon_polly_access_key">Obrigatório apenas se não está usando permissões IAM</p>';
 	}
 
 	/**
@@ -849,7 +849,7 @@ class Pollyaws_Admin {
 	public function amazon_polly_secret_key_cb() {
 		$secret_key = get_option( 'amazon_polly_secret_key' );
 		echo '<input type="password" class="regular-text" name="amazon_polly_secret_key" id="amazon_polly_secret_key" value="' . esc_attr( $secret_key ) . '" autocomplete="off"> ';
-		echo '<p class="description" id="amazon_polly_access_key">Required only if you aren\'t using IAM roles</p>';
+		echo '<p class="description" id="amazon_polly_access_key">Obrigatório apenas se não está usando permissões IAM</p>';
 	}
 
 	/**
@@ -861,9 +861,9 @@ class Pollyaws_Admin {
 
 		if ( $this->amazon_polly_is_ok() ) {
 			echo '<input type="checkbox" name="amazon_polly_auto_breaths" id="amazon_polly_auto_breaths" ' . $this->amazon_polly_checked_validator( 'amazon_polly_auto_breaths' ) . '> ';
-			echo '<p class="description" for="amazon_polly_auto_breaths">If enabled, Amazon Polly automatically creates breathing noises at appropriate intervals</p>';
+			echo '<p class="description" for="amazon_polly_auto_breaths">Se habilitado, Polly irá criar barulhos de respiração em intervalos apropriados</p>';
 		} else {
-			echo '<p>Please verify your AWS Credentials are accurate</p>';
+			echo '<p>Por favor, verifique se suas credenciais AWS estão corretas</p>';
 		}
 
 	}
@@ -883,7 +883,7 @@ class Pollyaws_Admin {
 				echo '<p class="description">Amazon Translate needs to be enabled</p>';
 			}
 		} else {
-			echo '<p>Please verify your AWS Credentials are accurate</p>';
+			echo '<p>Por favor, verifique se suas credenciais AWS estão corretas</p>';
 		}
 
 	}
@@ -903,7 +903,7 @@ class Pollyaws_Admin {
 				echo '<p class="description">Amazon Translate needs to be enabled</p>';
 			}
 		} else {
-			echo '<p>Please verify your AWS Credentials are accurate</p>';
+			echo '<p>Por favor, verifique se suas credenciais AWS estão corretas</p>';
 		}
 
 	}
@@ -923,7 +923,7 @@ class Pollyaws_Admin {
 				echo '<p class="description">Amazon Translate needs to be enabled</p>';
 			}
 		} else {
-				echo '<p>Please verify your AWS Credentials are accurate</p>';
+				echo '<p>Por favor, verifique se suas credenciais AWS estão corretas</p>';
 		}
 	}
 
@@ -975,7 +975,7 @@ class Pollyaws_Admin {
 				echo '<p class="description">Amazon S3 Storage needs to be enabled</p>';
 			}
 		} else {
-			echo '<p>Please verify your AWS Credentials are accurate</p>';
+			echo '<p>Por favor, verifique se suas credenciais AWS estão corretas</p>';
 		}
 	}
 
@@ -990,7 +990,7 @@ class Pollyaws_Admin {
 			echo '<input type="checkbox" name="amazon_polly_podcast_enabled" id="amazon_polly_podcast_enabled" ' . $this->amazon_polly_checked_validator( 'amazon_polly_podcast_enabled' ) . '> ';
 			echo '<p class="description" for="amazon_polly_podcast_enabled">If enabled, Amazon Pollycast will be generated</p>';
 		} else {
-			echo '<p>Please verify your AWS Credentials are accurate</p>';
+			echo '<p>Por favor, verifique se suas credenciais AWS estão corretas</p>';
 		}
 
 	}
@@ -1009,7 +1009,7 @@ class Pollyaws_Admin {
 		    echo '<p class="description">Amazon Pollycast is disabled</p>';
 		  }
 		} else {
-		  echo '<p>Please verify your AWS Credentials are accurate</p>';
+		  echo '<p>Por favor, verifique se suas credenciais AWS estão corretas</p>';
 		}
 
 	}
@@ -1025,7 +1025,7 @@ class Pollyaws_Admin {
 			echo '<input type="checkbox" name="amazon_polly_add_post_title" id="amazon_polly_add_post_title" ' . $this->amazon_polly_checked_validator( 'amazon_polly_add_post_title' ) . '> ';
 			echo '<p class="description" for="amazon_polly_add_post_title">If enabled, each audio file will start from post title.</p>';
 		} else {
-			echo '<p>Please verify your AWS Credentials are accurate</p>';
+			echo '<p>Por favor, verifique se suas credenciais AWS estão corretas</p>';
 		}
 
 	}
@@ -1041,7 +1041,7 @@ class Pollyaws_Admin {
 			echo '<input type="checkbox" name="amazon_polly_add_post_excerpt" id="amazon_polly_add_post_excerpt" ' . $this->amazon_polly_checked_validator( 'amazon_polly_add_post_excerpt' ) . '> ';
 			echo '<p class="description" for="amazon_polly_add_post_excerpt">If enabled, each audio file will have post excerpt at the beginning.</p>';
 		} else {
-			echo '<p>Please verify your AWS Credentials are accurate</p>';
+			echo '<p>Por favor, verifique se suas credenciais AWS estão corretas</p>';
 		}
 
 	}
@@ -1055,7 +1055,7 @@ class Pollyaws_Admin {
 
 		if ( $this->amazon_polly_is_ok() ) {
 			$selected_defconf = get_option( 'amazon_polly_defconf' );
-			$defconf_values   = [ 'Amazon Polly enabled', 'Amazon Polly disabled' ];
+			$defconf_values   = [ 'Polly habilitada', 'Polly desabilitada' ];
 
 			echo '<select name="amazon_polly_defconf" id="amazon_polly_defconf" >';
 			foreach ( $defconf_values as $defconf ) {
@@ -1067,7 +1067,7 @@ class Pollyaws_Admin {
 			}
 			echo '</select>';
 		} else {
-			echo '<p>Please verify your AWS Credentials are accurate</p>';
+			echo '<p>Por favor, verifique se suas credenciais AWS estão corretas</p>';
 		}
 
 	}
@@ -1081,7 +1081,7 @@ class Pollyaws_Admin {
 
 		if ( $this->amazon_polly_is_ok() ) {
 			$selected_position = get_option( 'amazon_polly_position' );
-			$positions_values  = array( 'Before post', 'After post', 'Do not show' );
+			$positions_values  = array( 'Antes do post', 'Depois do post', 'Não mostrar' );
 
 			echo '<select name="amazon_polly_position" id="amazon_polly_position" >';
 			foreach ( $positions_values as $position ) {
@@ -1093,7 +1093,7 @@ class Pollyaws_Admin {
 			}
 			echo '</select>';
 		} else {
-			echo '<p>Please verify your AWS Credentials are accurate</p>';
+			echo '<p>Por favor, verifique se suas credenciais AWS estão corretas</p>';
 		}
 
 	}
@@ -1108,9 +1108,9 @@ class Pollyaws_Admin {
 		if ( $this->validate_credentials() ) {
 			$lexicons = $this->get_lexicons();
 			echo '<input type="text" class="regular-text" name="amazon_polly_lexicons" id="amazon_polly_lexicons" value="' . esc_attr( $lexicons ) . '"> ';
-			echo '<p class="description" for="amazon_polly_lexicons">Specify lexicons names (seperated by space), which you have uploaded to your AWS account</p>';
+			echo '<p class="description" for="amazon_polly_lexicons">Especifique os nomes dos lexicos (separados por espaço), que você configurou na sua conta AWS</p>';
 		} else {
-			echo '<p>Please verify your AWS Credentials are accurate</p>';
+			echo '<p>Por favor, verifique se suas credenciais AWS estão corretas</p>';
 		}
 
 	}
@@ -1127,7 +1127,7 @@ class Pollyaws_Admin {
 			$player_label = get_option( 'amazon_polly_player_label' );
 			echo '<input type="text" class="regular-text" name="amazon_polly_player_label" id="amazon_polly_player_label" value="' . esc_attr( $player_label ) . '"> ';
 		} else {
-			echo '<p>Please verify your AWS Credentials are accurate</p>';
+			echo '<p>Por favor, verifique se suas credenciais AWS estão corretas</p>';
 		}
 
 	}
@@ -1144,9 +1144,9 @@ class Pollyaws_Admin {
 			$posttypes = $this->amazon_polly_get_posttypes();
 
 			echo '<input type="text" class="regular-text" name="amazon_polly_posttypes" id="amazon_polly_posttypes" value="' . esc_attr( $posttypes ) . '"> ';
-			echo '<p class="description" for="amazon_polly_posttypes">Post types in your WordPress environment</p>';
+			echo '<p class="description" for="amazon_polly_posttypes">Post types no seu ambiente Wordpress</p>';
 		} else {
-			echo '<p>Please verify your AWS Credentials are accurate</p>';
+			echo '<p>Por favor, verifique se suas credenciais AWS estão corretas</p>';
 		}
 
 	}
@@ -1226,9 +1226,9 @@ class Pollyaws_Admin {
 				echo '<label for="amazon_polly_s3" id="amazon_polly_s3_bucket_name_box" style="' . esc_attr( $bucket_name_visibility ) . '"> Your S3 Bucket name is <b>' . esc_attr( $s3_bucket_name ) . '</b></label>';
 			}
 
-			echo '<p class="description">Audio files are saved on and streamed from Amazon S3. Learn more <a target="_blank" href="https://aws.amazon.com/s3">https://aws.amazon.com/s3</a></p>';
+			echo '<p class="description">Arquivos de áudio são armazenados e distribuidos pela Amazon S3. Leia mais <a target="_blank" href="https://aws.amazon.com/s3">https://aws.amazon.com/s3</a></p>';
 		} else {
-			echo '<p>Please verify your AWS Credentials are accurate</p>';
+			echo '<p>Por favor, verifique se suas credenciais AWS estão corretas</p>';
 		}//end if
 	}
 
@@ -1254,12 +1254,12 @@ class Pollyaws_Admin {
 				}
 
 				echo '<input type="text" name="amazon_polly_cloudfront" class="regular-text" "id="amazon_polly_cloudfront" value="' . esc_attr( $cloudfront_domain_name ) . '" ' . esc_attr( $disabled ) . '> ';
-				echo '<p class="description">If you have set up CloudFront distribution for your S3 bucket, the name of the domain. For additional information and pricing, see: <a target="_blank" href="https://aws.amazon.com/cloudfront">https://aws.amazon.com/cloudfront</a> </p>';
+				echo '<p class="description">Se você usa uma distribuição CloudFront para seu bucket S3, insira o domínio. Para mais informações e preços, veja <a target="_blank" href="https://aws.amazon.com/cloudfront">https://aws.amazon.com/cloudfront</a> </p>';
 			} else {
-				echo '<p class="description">Amazon S3 Storage needs to be enabled</p>';
+				echo '<p class="description">Amazenamento Amazon S3 precisa estar habilitado</p>';
 			}
 		} else {
-			echo '<p>Please verify your AWS Credentials are accurate</p>';
+			echo '<p>Por favor, verifique se suas credenciais AWS estão corretas</p>';
 		}//end if
 
 	}
@@ -1285,10 +1285,10 @@ class Pollyaws_Admin {
 
 				echo '<input type="checkbox" name="amazon_polly_ssml" id="amazon_polly_ssml" ' . esc_attr( $checked ) . '> ';
 			} else {
-				echo '<p class="description">Amazon S3 Storage needs to be enabled</p>';
+				echo '<p class="description">Amazenamento Amazon S3 precisa estar habilitado</p>';
 			}
 		} else {
-			echo '<p>Please verify your AWS Credentials are accurate</p>';
+			echo '<p>Por favor, verifique se suas credenciais AWS estão corretas</p>';
 		}
 	}
 
@@ -1309,9 +1309,9 @@ class Pollyaws_Admin {
 				$checked = ' checked ';
 			}
 			echo '<input type="checkbox" name="amazon_polly_autoplay" id="amazon_polly_autoplay" ' . esc_attr( $checked ) . '> ';
-			echo '<p class="description" for="amazon_polly_autoplay">Automatically play audio content when page loads</p>';
+			echo '<p class="description" for="amazon_polly_autoplay">Inicia o áudio automaticamente ao abrir o post</p>';
 		} else {
-			echo '<p>Please verify your AWS Credentials are accurate</p>';
+			echo '<p>Por favor, verifique se suas credenciais AWS estão corretas</p>';
 		}
 	}
 
@@ -1326,7 +1326,7 @@ class Pollyaws_Admin {
 			$speed = $this->amazon_polly_get_speed();
 			echo '<input type="number" name="amazon_polly_speed" id="amazon_polly_speed" value="' . esc_attr( $speed ) . '">';
 		} else {
-			echo '<p>Please verify your AWS Credentials are accurate</p>';
+			echo '<p>Por favor, verifique se suas credenciais AWS estão corretas</p>';
 		}
 	}
 
@@ -1550,7 +1550,7 @@ class Pollyaws_Admin {
 			}
 			echo '</select>';
 		} else {
-			echo '<p>Please verify your AWS Credentials are accurate</p>';
+			echo '<p>Por favor, verifique se suas credenciais AWS estão corretas</p>';
 		}//end if
 
 	}
@@ -1582,7 +1582,7 @@ class Pollyaws_Admin {
 				echo '<p class="description">Amazon Translate needs to be enabled</p>';
 			}
 		} else {
-			echo '<p>Please verify your AWS Credentials are accurate</p>';
+			echo '<p>Por favor, verifique se suas credenciais AWS estão corretas</p>';
 		}//end if
 
 	}
@@ -1711,7 +1711,7 @@ class Pollyaws_Admin {
 					'de' => 'German',
 					'es' => 'Spanish',
 					'fr' => 'French',
-					'pt' => 'Portuguese',
+					'pt' => 'Português',
 				);
 
 				echo '<select name="amazon_polly_trans_src_lang" id="amazon_polly_trans_src_lang" >';
@@ -1728,7 +1728,7 @@ class Pollyaws_Admin {
 		    echo '<p class="description">Amazon Translate needs to be enabled</p>';
 		  }
 		} else {
-		  echo '<p>Please verify your AWS Credentials are accurate</p>';
+		  echo '<p>Por favor, verifique se suas credenciais AWS estão corretas</p>';
 		}
 
 
@@ -1756,7 +1756,7 @@ class Pollyaws_Admin {
 			}
 			echo '</select>';
 		} else {
-			echo '<p>Please verify your AWS Credentials are accurate</p>';
+			echo '<p>Por favor, verifique se suas credenciais AWS estão corretas</p>';
 		}
 
 	}
@@ -1826,7 +1826,7 @@ class Pollyaws_Admin {
 		} else {
 			$voice_id = get_option( 'amazon_polly_voice_id' );
 			echo '<input type="hidden" name="amazon_polly_voice_id" id="amazon_polly_voice_id" value="' . esc_attr( $voice_id ) . '">';
-			echo '<p>Please verify your AWS Credentials are accurate</p>';
+			echo '<p>Por favor, verifique se suas credenciais AWS estão corretas</p>';
 		}//end if
 
 	}
@@ -1850,7 +1850,7 @@ class Pollyaws_Admin {
 				echo '<div id="amazon-polly-progressbar"><div class="amazon-polly-progress-label">Loading...</div></div>';
 			echo '</div>';
 		} else {
-			echo '<p>Please verify your AWS Credentials are accurate</p>';
+			echo '<p>Por favor, verifique se suas credenciais AWS estão corretas</p>';
 		}
 	}
 
@@ -1880,7 +1880,7 @@ class Pollyaws_Admin {
 				echo '<p class="description">Amazon Pollycast is disabled</p>';
 			}
 		} else {
-			echo '<p>Please verify your AWS Credentials are accurate</p>';
+			echo '<p>Por favor, verifique se suas credenciais AWS estão corretas</p>';
 		}
 	}
 
@@ -1899,7 +1899,7 @@ class Pollyaws_Admin {
 				echo '<p class="description">Amazon Pollycast is disabled</p>';
 			}
 		} else {
-			echo '<p>Please verify your AWS Credentials are accurate</p>';
+			echo '<p>Por favor, verifique se suas credenciais AWS estão corretas</p>';
 		}
 	}
 
@@ -1917,7 +1917,7 @@ class Pollyaws_Admin {
 				echo '<p class="description">Amazon Pollycast is disabled</p>';
 			}
 		} else {
-			echo '<p>Please verify your AWS Credentials are accurate</p>';
+			echo '<p>Por favor, verifique se suas credenciais AWS estão corretas</p>';
 		}
 	}
 
@@ -1967,7 +1967,7 @@ class Pollyaws_Admin {
 				echo '<p class="description">Amazon Pollycast is disabled</p>';
 			}
 		} else {
-			echo '<p>Please verify your AWS Credentials are accurate</p>';
+			echo '<p>Por favor, verifique se suas credenciais AWS estão corretas</p>';
 		}//end if
 	}
 
@@ -1999,7 +1999,7 @@ class Pollyaws_Admin {
 				echo '<p class="description">Amazon Pollycast is disabled</p>';
 			}
 		} else {
-			echo '<p>Please verify your AWS Credentials are accurate</p>';
+			echo '<p>Por favor, verifique se suas credenciais AWS estão corretas</p>';
 		}
 	}
 
@@ -2019,7 +2019,7 @@ class Pollyaws_Admin {
 				echo '<p class="description">Amazon Pollycast is disabled</p>';
 			}
 		} else {
-			echo '<p>Please verify your AWS Credentials are accurate</p>';
+			echo '<p>Por favor, verifique se suas credenciais AWS estão corretas</p>';
 		}
 	}
 
@@ -2253,7 +2253,7 @@ class Pollyaws_Admin {
 			case 'de':
 				return 'German';
 			case 'pt':
-				return 'Portuguese';
+				return 'Português';
 			case 'es':
 				return 'Spanish';
 		}
