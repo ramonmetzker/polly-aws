@@ -16,7 +16,7 @@
  * Plugin Name:       Polly AWS
  * Plugin URI:        https://packagist.org/packages/ramonmetzker/polly-aws
  * Description:       Plugin para conversão Text-to-speech usando o serviço Polly da Amazon
- * Version:           1.0.2
+ * Version:           1.0.3
  * Author:            Ramon Metzker, Mobister, Blacklab
  * Author URI:        https://www.mobister.com.br/
  * License:           MIT

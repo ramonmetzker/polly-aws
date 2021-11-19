@@ -217,9 +217,9 @@ class Pollyaws_Public {
 
 		// Put plugin content in the correct position.
 		$selected_position = get_option( 'amazon_polly_position' );
-		if ( strcmp( $selected_position, 'Do not show' ) === 0 ) {
+		if ( strcmp( $selected_position, 'Não mostrar' ) === 0 ) {
 			$content = $content;
-		} elseif ( strcmp( $selected_position, 'After post' ) === 0 ) {
+		} elseif ( strcmp( $selected_position, 'Depois do post' ) === 0 ) {
 			$content = $content . $translate_options . $polly_content;
 		} else {
 			$content = $translate_options . $polly_content . $content;

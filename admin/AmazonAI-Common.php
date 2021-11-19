@@ -1852,7 +1852,7 @@ class AmazonAI_Common
 		add_meta_box(
 			'amazon_polly_box_id',
 			// This is HTML id of the box on edit screen.
-			'Amazon Polly',
+			'Narração Polly AWS',
 			// Title of the box.
 			[ $meta_box, 'display_box_content'],
 			// Function to be called to display the checkboxes, see the function below.
@@ -1875,7 +1875,7 @@ class AmazonAI_Common
             $this->check_aws_access();
         }
         catch(CredsException $e) {
-            $this->show_error_notice("notice-error", "Can't connect to AWS. Check your AWS credentials.");
+            $this->show_error_notice("notice-error", "Não foi possível conectar à AWS. Verifique as credenciais.");
             return false;
         }
         return true;
