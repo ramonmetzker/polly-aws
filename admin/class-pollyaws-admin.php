@@ -1711,7 +1711,7 @@ class Pollyaws_Admin {
 					'de' => 'German',
 					'es' => 'Spanish',
 					'fr' => 'French',
-					'pt' => 'Português',
+					'pt' => 'Portuguese',
 				);
 
 				echo '<select name="amazon_polly_trans_src_lang" id="amazon_polly_trans_src_lang" >';
@@ -2253,7 +2253,7 @@ class Pollyaws_Admin {
 			case 'de':
 				return 'German';
 			case 'pt':
-				return 'Português';
+				return 'Portuguese';
 			case 'es':
 				return 'Spanish';
 		}

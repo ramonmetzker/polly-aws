@@ -49,7 +49,7 @@ class AmazonAI_Common
 		['code' => 'no', 'name' => 'Norwegian', 'translatable' => '1', 'polly' => '1'],
 		['code' => 'fa', 'name' => 'Persian', 'translatable' => '1', 'polly' => ''],
 		['code' => 'pl', 'name' => 'Polish', 'translatable' => '1', 'polly' => '1'],
-		['code' => 'pt', 'name' => 'Português', 'translatable' => '1', 'polly' => '1'],
+		['code' => 'pt', 'name' => 'Portuguese', 'translatable' => '1', 'polly' => '1'],
 		['code' => 'ps', 'name' => 'Pushto', 'translatable' => '1', 'polly' => '0'],
 		['code' => 'ro', 'name' => 'Romanian', 'translatable' => '1', 'polly' => '1'],
 		['code' => 'sr', 'name' => 'Serbian', 'translatable' => '1', 'polly' => '0'],
