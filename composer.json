@@ -1,17 +1,17 @@
 {
-    "name": "ramonmetzker/polly-aws",
-    "description": "Wordpress Plugin for TTS with AWS Polly",
-    "type": "wordpress-plugin",
-    "require": {
-        "aws/aws-sdk-php": "^3.204",
-        "symfony/polyfill-mbstring": "1.23.x-dev"
-    },
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "Ramon Metzker",
-            "email": "ramonmetzker12@gmail.com"
-        }
-    ],
-    "minimum-stability": "dev"
+  "name": "ramonmetzker/polly-aws",
+  "description": "Wordpress Plugin for TTS with AWS Polly",
+  "type": "wordpress-plugin",
+  "require": {
+    "aws/aws-sdk-php": "3.*",
+    "symfony/polyfill-mbstring": "1.17"
+  },
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Ramon Metzker",
+      "email": "ramonmetzker12@gmail.com"
+    }
+  ],
+  "minimum-stability": "dev"
 }
