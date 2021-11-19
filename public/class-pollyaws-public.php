@@ -2,11 +2,11 @@
 /**
  * The public-facing functionality of the plugin.
  *
- * @link       amazon.com
+ * @link       ramonmetzker.dev.br
  * @since      1.0.0
  *
- * @package    Amazonpolly
- * @subpackage Amazonpolly/public
+ * @package    Pollyaws
+ * @subpackage Pollyaws/public
  */
 
 /**
@@ -15,11 +15,11 @@
  * Defines the plugin name, version, and two examples hooks for how to
  * enqueue the admin-specific stylesheet and JavaScript.
  *
- * @package    Amazonpolly
- * @subpackage Amazonpolly/public
- * @author     AWS Labs
+ * @package    Pollyaws
+ * @subpackage Pollyaws/public
+ * @author     Ramon Metzker
  */
-class Amazonpolly_Public {
+class Pollyaws_Public {
 
 	/**
 	 * The ID of this plugin.
@@ -153,9 +153,9 @@ class Amazonpolly_Public {
 
 				// Removing Amazon Polly special tags.
 				$content = $content;
-				$content = preg_replace( '/-AMAZONPOLLY-ONLYAUDIO-START-[\S\s]*?-AMAZONPOLLY-ONLYAUDIO-END-/', '', $content );
-				$content = str_replace( '-AMAZONPOLLY-ONLYWORDS-START-', '', $content );
-				$content = str_replace( '-AMAZONPOLLY-ONLYWORDS-END-', '', $content );
+				$content = preg_replace( '/-POLLYAWS-ONLYAUDIO-START-[\S\s]*?-POLLYAWS-ONLYAUDIO-END-/', '', $content );
+				$content = str_replace( '-POLLYAWS-ONLYWORDS-START-', '', $content );
+				$content = str_replace( '-POLLYAWS-ONLYWORDS-END-', '', $content );
 
 				// Create player area.
 				if ( is_singular() ) {
@@ -340,15 +340,15 @@ class Amazonpolly_Public {
 		 * This function is provided for demonstration purposes only.
 		 *
 		 * An instance of this class should be passed to the run() function
-		 * defined in Amazonpolly_Loader as all of the hooks are defined
+		 * defined in Pollyaws_Loader as all of the hooks are defined
 		 * in that particular class.
 		 *
-		 * The Amazonpolly_Loader will then create the relationship
+		 * The Pollyaws_Loader will then create the relationship
 		 * between the defined hooks and the functions defined in this
 		 * class.
 		 */
 
-		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/amazonpolly-public.css', array(), $this->version, 'all' );
+		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/pollyaws-public.css', array(), $this->version, 'all' );
 
 	}
 
@@ -363,15 +363,15 @@ class Amazonpolly_Public {
 		 * This function is provided for demonstration purposes only.
 		 *
 		 * An instance of this class should be passed to the run() function
-		 * defined in Amazonpolly_Loader as all of the hooks are defined
+		 * defined in Pollyaws_Loader as all of the hooks are defined
 		 * in that particular class.
 		 *
-		 * The Amazonpolly_Loader will then create the relationship
+		 * The Pollyaws_Loader will then create the relationship
 		 * between the defined hooks and the functions defined in this
 		 * class.
 		 */
 
-		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/amazonpolly-public.js', array( 'jquery' ), $this->version, false );
+		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/pollyaws-public.js', array( 'jquery' ), $this->version, false );
 
 	}
 
@@ -383,8 +383,8 @@ class Amazonpolly_Public {
 	 */
 	public function customize_register( $wp_customize ) {
 		$wp_customize->add_section(
-			'amazonpolly', array(
-				'title'    => __( 'Amazon Polly', 'amazonpolly' ),
+			'pollyaws', array(
+				'title'    => __( 'Amazon Polly', 'pollyaws' ),
 				'priority' => 30,
 			)
 		);
@@ -425,7 +425,7 @@ class Amazonpolly_Public {
 			new WP_Customize_Cropped_Image_Control(
 				$wp_customize, 'podcast_icon', array(
 					'settings'    => 'amazon_polly_podcast_icon',
-					'section'     => 'amazonpolly',
+					'section'     => 'pollyaws',
 					'label'       => __( 'iTunes image' ),
 					'flex_width'  => false,
 					'flex_height' => false,
@@ -438,7 +438,7 @@ class Amazonpolly_Public {
 			new WP_Customize_Control(
 				$wp_customize, 'podcast_email', array(
 					'settings'    => 'amazon_polly_podcast_email',
-					'section'     => 'amazonpolly',
+					'section'     => 'pollyaws',
 					'label'       => __( 'iTunes contact email' ),
 					'flex_width'  => false,
 					'flex_height' => false,
@@ -452,7 +452,7 @@ class Amazonpolly_Public {
 			'amazon_polly_podcast_category', array(
 				'type'     => 'select',
 				'priority' => 10,
-				'section'  => 'amazonpolly',
+				'section'  => 'pollyaws',
 				'label'    => __( 'iTunes category' ),
 				'choices'  => array(
 					'Arts'                       => 'Arts',
@@ -479,7 +479,7 @@ class Amazonpolly_Public {
 			'amazon_polly_podcast_explicit', array(
 				'type'     => 'select',
 				'priority' => 10,
-				'section'  => 'amazonpolly',
+				'section'  => 'pollyaws',
 				'label'    => __( 'iTunes explicit content' ),
 				'choices'  => array(
 					'yes' => 'Yes',

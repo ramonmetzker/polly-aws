@@ -5,8 +5,8 @@
  * @link       amazon.com
  * @since      2.5.0
  *
- * @package    Amazonpolly
- * @subpackage Amazonpolly/admin
+ * @package    Pollyaws
+ * @subpackage Pollyaws/admin
  */
 
 class AmazonAI_GeneralConfiguration
@@ -73,13 +73,13 @@ class AmazonAI_GeneralConfiguration
             $this,
             'general_gui'
         ), 'amazon_ai');
-        add_settings_field('amazon_polly_access_key', __('AWS access key:', 'amazonpolly'), array(
+        add_settings_field('amazon_polly_access_key', __('AWS access key:', 'pollyaws'), array(
             $this,
             'access_key_gui'
         ), 'amazon_ai', 'amazon_ai_general', array(
             'label_for' => 'amazon_polly_access_key'
         ));
-        add_settings_field('amazon_polly_secret_key_fake', __('AWS secret key:', 'amazonpolly'), array(
+        add_settings_field('amazon_polly_secret_key_fake', __('AWS secret key:', 'pollyaws'), array(
             $this,
             'secret_key_gui'
         ), 'amazon_ai', 'amazon_ai_general', array(
@@ -90,7 +90,7 @@ class AmazonAI_GeneralConfiguration
         register_setting('amazon_ai', 'amazon_polly_access_key');
         register_setting('amazon_ai', 'amazon_polly_secret_key_fake');
 
-          add_settings_field('amazon_polly_region', __('AWS Region:', 'amazonpolly'), array(
+          add_settings_field('amazon_polly_region', __('AWS Region:', 'pollyaws'), array(
               $this,
               'region_gui'
           ), 'amazon_ai', 'amazon_ai_general', array(

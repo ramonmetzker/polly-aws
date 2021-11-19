@@ -6,8 +6,8 @@
  * @link       amazon.com
  * @since      2.0.3
  *
- * @package    Amazonpolly
- * @subpackage Amazonpolly/admin
+ * @package    Pollyaws
+ * @subpackage Pollyaws/admin
  */
 
 class AmazonAI_Translator {
@@ -149,11 +149,11 @@ class AmazonAI_Translator {
 		$logger->log(sprintf('%s Traslating', __METHOD__));
 
 		// Translate functionality doesn't support SSML, ONLYAUDIO, ONLYWORDS tags
-    $source_text = preg_replace( '/(\*\*AMAZONPOLLY\*SSML\*BREAK\*)(.*?)(\*\*\*)(.*?)(\*\*\*SSML\*\*)/', '', $source_text );
-    $source_text = str_replace( '-AMAZONPOLLY-ONLYAUDIO-START-', '', $source_text );
-    $source_text = str_replace( '-AMAZONPOLLY-ONLYAUDIO-END-', '', $source_text );
-    $source_text = str_replace( '-AMAZONPOLLY-ONLYWORDS-START-', '', $source_text );
-    $source_text = str_replace( '-AMAZONPOLLY-ONLYWORDS-END-', '', $source_text );
+    $source_text = preg_replace( '/(\*\*POLLYAWS\*SSML\*BREAK\*)(.*?)(\*\*\*)(.*?)(\*\*\*SSML\*\*)/', '', $source_text );
+    $source_text = str_replace( '-POLLYAWS-ONLYAUDIO-START-', '', $source_text );
+    $source_text = str_replace( '-POLLYAWS-ONLYAUDIO-END-', '', $source_text );
+    $source_text = str_replace( '-POLLYAWS-ONLYWORDS-START-', '', $source_text );
+    $source_text = str_replace( '-POLLYAWS-ONLYWORDS-END-', '', $source_text );
 
 		// Because of limits of Amazon Translate service, we need to break original text info
 		// smaller parts, which will be then send to the servicec and translation will be perfomed.
@@ -197,9 +197,9 @@ class AmazonAI_Translator {
    */
   private function break_for_translate( $text ) {
 
-    $text = str_replace( '-AMAZONPOLLY-ONLYAUDIO-START-', '', $text );
-    $text = str_replace( '-AMAZONPOLLY-ONLYAUDIO-END-', '', $text );
-    $text = preg_replace( '/-AMAZONPOLLY-ONLYWORDS-START-[\S\s]*?-AMAZONPOLLY-ONLYWORDS-END-/', '', $text );
+    $text = str_replace( '-POLLYAWS-ONLYAUDIO-START-', '', $text );
+    $text = str_replace( '-POLLYAWS-ONLYAUDIO-END-', '', $text );
+    $text = preg_replace( '/-POLLYAWS-ONLYWORDS-START-[\S\s]*?-POLLYAWS-ONLYWORDS-END-/', '', $text );
 
     $parts   = [];
     $part_id = 0;

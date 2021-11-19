@@ -7,8 +7,8 @@
  * @link       amazon.com
  * @since      1.0.0
  *
- * @package    Amazonpolly
- * @subpackage Amazonpolly/admin/partials
+ * @package    Pollyaws
+ * @subpackage Pollyaws/admin/partials
  */
 
 ?>

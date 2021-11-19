@@ -8,8 +8,8 @@
  * @link       amazon.com
  * @since      1.0.0
  *
- * @package    Amazonpolly
- * @subpackage Amazonpolly/includes
+ * @package    Pollyaws
+ * @subpackage Pollyaws/includes
  */
 
 /**
@@ -19,11 +19,11 @@
  * so that it is ready for translation.
  *
  * @since      1.0.0
- * @package    Amazonpolly
- * @subpackage Amazonpolly/includes
+ * @package    Pollyaws
+ * @subpackage Pollyaws/includes
  * @author     AWS Labs
  */
-class Amazonpolly_I18n {
+class Pollyaws_I18n {
 
 
 	/**
@@ -34,7 +34,7 @@ class Amazonpolly_I18n {
 	public function load_plugin_textdomain() {
 
 		load_plugin_textdomain(
-			'amazonpolly',
+			'pollyaws',
 			false,
 			dirname( dirname( plugin_basename( __FILE__ ) ) ) . '/languages/'
 		);

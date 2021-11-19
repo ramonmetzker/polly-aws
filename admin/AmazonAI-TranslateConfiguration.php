@@ -5,8 +5,8 @@
  * @link       amazon.com
  * @since      2.5.0
  *
- * @package    Amazonpolly
- * @subpackage Amazonpolly/admin
+ * @package    Pollyaws
+ * @subpackage Pollyaws/admin
  */
 class AmazonAI_TranslateConfiguration
 {
@@ -60,17 +60,17 @@ class AmazonAI_TranslateConfiguration
             $this,
             'translate_gui'
         ), 'amazon_ai_translate');
-        add_settings_field('amazon_polly_trans_enabled', __('Enable translation support:', 'amazonpolly'), array(
+        add_settings_field('amazon_polly_trans_enabled', __('Enable translation support:', 'pollyaws'), array(
             $this,
             'translation_enabled_gui'
         ), 'amazon_ai_translate', 'amazon_ai_translate', array(
             'label_for' => 'amazon_polly_trans_enabled'
         ));
 
-        add_settings_field( 'amazon_ai_source_language', __('Source language:', 'amazonpolly'), array($this,'source_language_gui'), 'amazon_ai_translate', 'amazon_ai_translate', array('label_for' => 'amazon_ai_source_language'));
+        add_settings_field( 'amazon_ai_source_language', __('Source language:', 'pollyaws'), array($this,'source_language_gui'), 'amazon_ai_translate', 'amazon_ai_translate', array('label_for' => 'amazon_ai_source_language'));
         register_setting('amazon_ai_translate', 'amazon_ai_source_language');
 
-        add_settings_field('amazon_polly_trans_enabled', __('Enable translation support:', 'amazonpolly'), array($this,'translation_enabled_gui'), 'amazon_ai_translate', 'amazon_ai_translate', array('label_for' => 'amazon_polly_trans_enabled'));
+        add_settings_field('amazon_polly_trans_enabled', __('Enable translation support:', 'pollyaws'), array($this,'translation_enabled_gui'), 'amazon_ai_translate', 'amazon_ai_translate', array('label_for' => 'amazon_polly_trans_enabled'));
         register_setting('amazon_ai_translate', 'amazon_polly_trans_enabled');
 
         if ($this->is_language_supported()) {
@@ -78,25 +78,25 @@ class AmazonAI_TranslateConfiguration
             if ( $this->common->validate_amazon_translate_access() ) {
 
 
-              add_settings_field('amazon_ai_audio_for_translation_enabled', __('Enable audio for translations:', 'amazonpolly'), array(
+              add_settings_field('amazon_ai_audio_for_translation_enabled', __('Enable audio for translations:', 'pollyaws'), array(
                   $this,
                   'audio_for_translation_enabled_gui'
               ), 'amazon_ai_translate', 'amazon_ai_translate', array(
                   'label_for' => 'amazon_ai_audio_for_translation_enabled'
               ));
-              add_settings_field('amazon_polly_trans_langs', __('Target languages:', 'amazonpolly'), array(
+              add_settings_field('amazon_polly_trans_langs', __('Target languages:', 'pollyaws'), array(
                   $this,
                   'translations_gui'
               ), 'amazon_ai_translate', 'amazon_ai_translate', array(
                   'label_for' => 'amazon_polly_trans_langs'
               ));
 
-              add_settings_section( 'amazon_ai_translateadditional', __( 'Additional configuration', 'amazonpolly' ), array( $this, 'translateadditional_gui' ), 'amazon_ai_translate');
+              add_settings_section( 'amazon_ai_translateadditional', __( 'Additional configuration', 'pollyaws' ), array( $this, 'translateadditional_gui' ), 'amazon_ai_translate');
 
-              add_settings_field('amazon_polly_posttypes', __('Post types:', 'amazonpolly'), array($this,'posttypes_gui'), 'amazon_ai_translate', 'amazon_ai_translateadditional', array('label_for' => 'amazon_polly_posttypes'));
+              add_settings_field('amazon_polly_posttypes', __('Post types:', 'pollyaws'), array($this,'posttypes_gui'), 'amazon_ai_translate', 'amazon_ai_translateadditional', array('label_for' => 'amazon_polly_posttypes'));
               register_setting('amazon_ai_translate', 'amazon_polly_posttypes');
 
-              add_settings_field('amazon_ai_logging', __('Enable logging:', 'amazonpolly'), array($this,'logging_gui'), 'amazon_ai_translate', 'amazon_ai_translateadditional', array('label_for' => 'amazon_ai_logging'));
+              add_settings_field('amazon_ai_logging', __('Enable logging:', 'pollyaws'), array($this,'logging_gui'), 'amazon_ai_translate', 'amazon_ai_translateadditional', array('label_for' => 'amazon_ai_logging'));
               register_setting('amazon_ai_translate', 'amazon_ai_logging');
 
 

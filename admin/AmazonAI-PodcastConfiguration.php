@@ -5,8 +5,8 @@
  * @link       amazon.com
  * @since      2.5.0
  *
- * @package    Amazonpolly
- * @subpackage Amazonpolly/admin
+ * @package    Pollyaws
+ * @subpackage Pollyaws/admin
  */
 
 class AmazonAI_PodcastConfiguration {
@@ -53,23 +53,23 @@ class AmazonAI_PodcastConfiguration {
 		function display_options()
 		{
 			add_settings_section('amazon_ai_podcast', "Amazon Pollycast configuration", array($this,'podcast_gui'), 'amazon_ai_podcast');
-			add_settings_field( 'amazon_polly_podcast_enabled', __( 'Pollycast enabled:', 'amazonpolly' ), array( $this, 'podcast_enabled_gui' ), 'amazon_ai_podcast', 'amazon_ai_podcast', array( 'label_for' => 'amazon_polly_podcast_enabled' ) );
+			add_settings_field( 'amazon_polly_podcast_enabled', __( 'Pollycast enabled:', 'pollyaws' ), array( $this, 'podcast_enabled_gui' ), 'amazon_ai_podcast', 'amazon_ai_podcast', array( 'label_for' => 'amazon_polly_podcast_enabled' ) );
 			register_setting('amazon_ai_podcast', 'amazon_polly_podcast_enabled');
 
 			if ( $this->common->is_podcast_enabled() ) {
-                add_settings_field( 'amazon_polly_podcast_title', __( 'Podcast title:', 'amazonpolly' ), array( $this, 'podcast_title_gui' ), 'amazon_ai_podcast', 'amazon_ai_podcast', array( 'label_for' => 'amazon_polly_podcast_title' ) );
-                add_settings_field( 'amazon_polly_podcast_description', __( 'Podcast description:', 'amazonpolly' ), array( $this, 'podcast_description_gui' ), 'amazon_ai_podcast', 'amazon_ai_podcast', array( 'label_for' => 'amazon_polly_podcast_description' ) );
-                add_settings_field( 'amazon_polly_podcast_author', __( 'iTunes author name:', 'amazonpolly' ), array( $this, 'podcast_author_gui' ), 'amazon_ai_podcast', 'amazon_ai_podcast', array( 'label_for' => 'amazon_polly_podcast_author' ) );
-                add_settings_field( 'amazon_polly_podcast_email', __( 'iTunes contact email:', 'amazonpolly' ), array( $this, 'podcast_email_gui' ), 'amazon_ai_podcast', 'amazon_ai_podcast', array( 'label_for' => 'amazon_polly_podcast_email' ) );
-                add_settings_field( 'amazon_polly_podcast_category', __( 'iTunes category:', 'amazonpolly' ), array( $this, 'podcast_category_gui' ), 'amazon_ai_podcast', 'amazon_ai_podcast', array( 'label_for' => 'amazon_polly_podcast_category' ) );
-                add_settings_field( 'amazon_polly_podcast_explicit', __( 'iTunes explicit content:', 'amazonpolly' ), array( $this, 'podcast_explicit_gui' ), 'amazon_ai_podcast', 'amazon_ai_podcast', array( 'label_for' => 'amazon_polly_podcast_explicit' ) );
-                add_settings_field( 'amazon_polly_podcast_icon', __( 'iTunes image:', 'amazonpolly' ), array( $this, 'podcast_icon_gui' ), 'amazon_ai_podcast', 'amazon_ai_podcast', array( 'label_for' => 'amazon_polly_podcast_icon' ) );
-                add_settings_field( 'amazon_polly_podcast_feedsize', __( 'Feed size:', 'amazonpolly' ), array( $this, 'podcast_feedsize_gui' ), 'amazon_ai_podcast', 'amazon_ai_podcast', array( 'label_for' => 'amazon_polly_podcast_feedsize' ) );
-                add_settings_field( 'amazon_polly_podcast_post_cat', __( 'Post categories:', 'amazonpolly' ), array( $this, 'podcast_post_cat_gui' ), 'amazon_ai_podcast', 'amazon_ai_podcast', array( 'label_for' => 'amazon_polly_podcast_post_cat' ) );
-                add_settings_field( 'amazon_polly_podcast_https', __( 'Use HTTPS for audio files:', 'amazonpolly' ), array( $this, 'podcast_https_gui' ), 'amazon_ai_podcast', 'amazon_ai_podcast', array( 'label_for' => 'amazon_polly_podcast_https' ) );
-                add_settings_field( 'amazon_polly_podcast_button', __( 'Show subscribe button:', 'amazonpolly' ), array( $this, 'podcast_subscribe_button_gui' ), 'amazon_ai_podcast', 'amazon_ai_podcast', array( 'label_for' => 'amazon_polly_podcast_button' ) );
-                add_settings_field( 'amazon_polly_podcast_button_link', __( 'Subscribe link:', 'amazonpolly' ), array( $this, 'podcast_subscribe_button_link_gui' ), 'amazon_ai_podcast', 'amazon_ai_podcast', array( 'label_for' => 'amazon_polly_podcast_button_link' ) );
-                add_settings_field( 'amazon_polly_podcast_button', __( 'Include RSS2 Namespaces:', 'amazonpolly' ), array( $this, 'podcast_rss2namespace_gui' ), 'amazon_ai_podcast', 'amazon_ai_podcast', array( 'label_for' => 'podcast_rss2namespace' ) );
+                add_settings_field( 'amazon_polly_podcast_title', __( 'Podcast title:', 'pollyaws' ), array( $this, 'podcast_title_gui' ), 'amazon_ai_podcast', 'amazon_ai_podcast', array( 'label_for' => 'amazon_polly_podcast_title' ) );
+                add_settings_field( 'amazon_polly_podcast_description', __( 'Podcast description:', 'pollyaws' ), array( $this, 'podcast_description_gui' ), 'amazon_ai_podcast', 'amazon_ai_podcast', array( 'label_for' => 'amazon_polly_podcast_description' ) );
+                add_settings_field( 'amazon_polly_podcast_author', __( 'iTunes author name:', 'pollyaws' ), array( $this, 'podcast_author_gui' ), 'amazon_ai_podcast', 'amazon_ai_podcast', array( 'label_for' => 'amazon_polly_podcast_author' ) );
+                add_settings_field( 'amazon_polly_podcast_email', __( 'iTunes contact email:', 'pollyaws' ), array( $this, 'podcast_email_gui' ), 'amazon_ai_podcast', 'amazon_ai_podcast', array( 'label_for' => 'amazon_polly_podcast_email' ) );
+                add_settings_field( 'amazon_polly_podcast_category', __( 'iTunes category:', 'pollyaws' ), array( $this, 'podcast_category_gui' ), 'amazon_ai_podcast', 'amazon_ai_podcast', array( 'label_for' => 'amazon_polly_podcast_category' ) );
+                add_settings_field( 'amazon_polly_podcast_explicit', __( 'iTunes explicit content:', 'pollyaws' ), array( $this, 'podcast_explicit_gui' ), 'amazon_ai_podcast', 'amazon_ai_podcast', array( 'label_for' => 'amazon_polly_podcast_explicit' ) );
+                add_settings_field( 'amazon_polly_podcast_icon', __( 'iTunes image:', 'pollyaws' ), array( $this, 'podcast_icon_gui' ), 'amazon_ai_podcast', 'amazon_ai_podcast', array( 'label_for' => 'amazon_polly_podcast_icon' ) );
+                add_settings_field( 'amazon_polly_podcast_feedsize', __( 'Feed size:', 'pollyaws' ), array( $this, 'podcast_feedsize_gui' ), 'amazon_ai_podcast', 'amazon_ai_podcast', array( 'label_for' => 'amazon_polly_podcast_feedsize' ) );
+                add_settings_field( 'amazon_polly_podcast_post_cat', __( 'Post categories:', 'pollyaws' ), array( $this, 'podcast_post_cat_gui' ), 'amazon_ai_podcast', 'amazon_ai_podcast', array( 'label_for' => 'amazon_polly_podcast_post_cat' ) );
+                add_settings_field( 'amazon_polly_podcast_https', __( 'Use HTTPS for audio files:', 'pollyaws' ), array( $this, 'podcast_https_gui' ), 'amazon_ai_podcast', 'amazon_ai_podcast', array( 'label_for' => 'amazon_polly_podcast_https' ) );
+                add_settings_field( 'amazon_polly_podcast_button', __( 'Show subscribe button:', 'pollyaws' ), array( $this, 'podcast_subscribe_button_gui' ), 'amazon_ai_podcast', 'amazon_ai_podcast', array( 'label_for' => 'amazon_polly_podcast_button' ) );
+                add_settings_field( 'amazon_polly_podcast_button_link', __( 'Subscribe link:', 'pollyaws' ), array( $this, 'podcast_subscribe_button_link_gui' ), 'amazon_ai_podcast', 'amazon_ai_podcast', array( 'label_for' => 'amazon_polly_podcast_button_link' ) );
+                add_settings_field( 'amazon_polly_podcast_button', __( 'Include RSS2 Namespaces:', 'pollyaws' ), array( $this, 'podcast_rss2namespace_gui' ), 'amazon_ai_podcast', 'amazon_ai_podcast', array( 'label_for' => 'podcast_rss2namespace' ) );
 
 
                 register_setting('amazon_ai_podcast', 'amazon_polly_podcast_title');
@@ -192,7 +192,7 @@ class AmazonAI_PodcastConfiguration {
 			 * @since  1.0.0
 			 */
 			public function podcast_icon_gui() {
-				$query['autofocus[section]'] = 'amazonpolly';
+				$query['autofocus[section]'] = 'pollyaws';
 				$section_link                = add_query_arg( $query, admin_url( 'customize.php' ) );
 				echo '<p>Upload a podcast icon using the <a target="_blank" href="' . esc_url( $section_link ) . '">Customizer</a>.</p>';
 			}

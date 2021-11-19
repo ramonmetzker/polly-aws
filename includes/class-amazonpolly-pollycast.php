@@ -5,18 +5,18 @@
  * @link       amazon.com
  * @since      1.0.0
  *
- * @package    Amazonpolly
- * @subpackage Amazonpolly/includes
+ * @package    Pollyaws
+ * @subpackage Pollyaws/includes
  */
 
 /**
  * The podcast functionality of the plugin.
  *
- * @package    Amazonpolly
- * @subpackage Amazonpolly/pollycast
+ * @package    Pollyaws
+ * @subpackage Pollyaws/pollycast
  * @author     WP Engine
  */
-class Amazonpolly_PollyCast {
+class Pollyaws_PollyCast {
 	/**
 	 * @var AmazonAI_Common
 	 */

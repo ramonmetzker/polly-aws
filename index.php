@@ -2,10 +2,10 @@
 /**
  * Silence is golden
  *
- * @link       amazon.com
+ * @link       ramonmetzker.dev.br
  * @since      1.0.0
  *
- * @package    Amazonpolly
+ * @package    Pollyaws
  */
 
 // None.

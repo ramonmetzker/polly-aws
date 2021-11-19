@@ -4,16 +4,16 @@
  * @link       amazon.com
  * @since      1.0.0
  *
- * @package    Amazonpolly
- * @subpackage Amazonpolly/admin/js
+ * @package    Pollyaws
+ * @subpackage Pollyaws/admin/js
  */
 
 (function( $ ) {
 	'use strict';
 
-	function amazonPollyProcessStep() {
+	function pollyawsProcessStep() {
 
-		var amazonPollyProgressbar = $( "#amazon-polly-progressbar" );
+		var pollyawsProgressbar = $( "#amazon-polly-progressbar" );
 
 		$.ajax({
 			type: 'POST',
@@ -32,14 +32,14 @@
 				if( 'done' == response.step ) {
 
 				} else {
-					amazonPollyProcessStep();
+					pollyawsProcessStep();
 				}
 
 				$( "#amazon-polly-progressbar" ).progressbar({
 					value: response.percentage
 				});
 
-				amazonPollyProgressbar.progressbar( "value", response.percentage);
+				pollyawsProgressbar.progressbar( "value", response.percentage);
 			}
 		}).fail(function (response) {
 			if ( window.console && window.console.log ) {
@@ -50,10 +50,10 @@
 
 
 
-	function amazonPollyTransProcessStep(phase, langs) {
+	function pollyawsTransProcessStep(phase, langs) {
 
-		var amazonPollyTransProgressbar = $( "#amazon_polly_trans-progressbar" );
-		var amazonPollyTransProgressLabel = $( ".amazon_polly_trans-label" );
+		var pollyawsTransProgressbar = $( "#amazon_polly_trans-progressbar" );
+		var pollyawsTransProgressLabel = $( ".amazon_polly_trans-label" );
 
 		var post_id = $( "#post_ID" ).val();
 
@@ -78,16 +78,16 @@
 				if( 'done' == response.step ) {
 
 				} else {
-					amazonPollyTransProcessStep('continue',response.langs);
+					pollyawsTransProcessStep('continue',response.langs);
 				}
 
 				$( "#amazon_polly_trans-progressbar" ).progressbar({
 					value: response.percentage
 				});
 
-				amazonPollyTransProgressbar.progressbar( "value", response.percentage);
+				pollyawsTransProgressbar.progressbar( "value", response.percentage);
 
-				amazonPollyTransProgressLabel.text( response.message );
+				pollyawsTransProgressLabel.text( response.message );
 			}
 		}).fail(function (response) {
 			if ( window.console && window.console.log ) {
@@ -101,45 +101,45 @@
 	$( document ).ready(
 		function(){
 
-			var amazonPollyProgressbar = $( "#amazon-polly-progressbar" );
-			var amazonPollyProgressLabel = $( ".amazon-polly-progress-label" );
+			var pollyawsProgressbar = $( "#amazon-polly-progressbar" );
+			var pollyawsProgressLabel = $( ".amazon-polly-progress-label" );
 
 			$( '#amazon_polly_batch_transcribe' ).click(
 				function(){
 					$('#amazon_polly_batch_transcribe').hide();
 
-					amazonPollyProgressbar.progressbar({
+					pollyawsProgressbar.progressbar({
 				      value: false,
 				      change: function() {
-				        amazonPollyProgressLabel.text( "Starting" );
+				        pollyawsProgressLabel.text( "Starting" );
 				      },
 				      complete: function() {
-				        amazonPollyProgressLabel.text( "Complete!" );
+				        pollyawsProgressLabel.text( "Complete!" );
 				      }
 				    });
-					amazonPollyProcessStep();
+					pollyawsProcessStep();
 				}
 			);
 
 
-			var amazonPollyTraProgressbar = $( "#amazon_polly_trans-progressbar" );
-			var amazonPollyTraProgressLabel = $( ".amazon_polly_trans-label" );
+			var pollyawsTraProgressbar = $( "#amazon_polly_trans-progressbar" );
+			var pollyawsTraProgressLabel = $( ".amazon_polly_trans-label" );
 
 			$( '#amazon_polly_trans_button' ).click(
 				function(){
 					$('#amazon_polly_trans_button').hide();
 					$('#amazon-polly-trans-info').hide();
 
-					amazonPollyTraProgressbar.progressbar({
+					pollyawsTraProgressbar.progressbar({
 							value: false,
 							change: function() {
-								amazonPollyTraProgressLabel.text( amazonPollyTraProgressbar.progressbar( "value" ) + "%" );
+								pollyawsTraProgressLabel.text( pollyawsTraProgressbar.progressbar( "value" ) + "%" );
 							},
 							complete: function() {
-								amazonPollyTraProgressLabel.text( "Translation completed!" );
+								pollyawsTraProgressLabel.text( "Translation completed!" );
 							}
 						});
-					amazonPollyTransProcessStep('start','');
+					pollyawsTransProcessStep('start','');
 				}
 			);
 

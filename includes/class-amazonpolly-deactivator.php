@@ -5,8 +5,8 @@
  * @link       amazon.com
  * @since      1.0.0
  *
- * @package    Amazonpolly
- * @subpackage Amazonpolly/includes
+ * @package    Pollyaws
+ * @subpackage Pollyaws/includes
  */
 
 /**
@@ -15,11 +15,11 @@
  * This class defines all code necessary to run during the plugin's deactivation.
  *
  * @since      1.0.0
- * @package    Amazonpolly
- * @subpackage Amazonpolly/includes
+ * @package    Pollyaws
+ * @subpackage Pollyaws/includes
  * @author     AWS Labs
  */
-class Amazonpolly_Deactivator {
+class Pollyaws_Deactivator {
 
 	/**
 	 * Short Description. (use period)

@@ -5,8 +5,8 @@
  * @link       amazon.com
  * @since      2.0.3
  *
- * @package    Amazonpolly
- * @subpackage Amazonpolly/admin
+ * @package    Pollyaws
+ * @subpackage Pollyaws/admin
  */
 
 class AmazonAI_S3FileHandler extends AmazonAI_FileHandler {

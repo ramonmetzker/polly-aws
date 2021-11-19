@@ -5,8 +5,8 @@
  * @link       amazon.com
  * @since      1.0.0
  *
- * @package    Amazonpolly
- * @subpackage Amazonpolly/includes
+ * @package    Pollyaws
+ * @subpackage Pollyaws/includes
  */
 
 /**
@@ -15,11 +15,11 @@
  * This class defines all code necessary to run during the plugin's activation.
  *
  * @since      1.0.0
- * @package    Amazonpolly
- * @subpackage Amazonpolly/includes
+ * @package    Pollyaws
+ * @subpackage Pollyaws/includes
  * @author     AWS Labs
  */
-class Amazonpolly_Activator {
+class Pollyaws_Activator {
 
 	/**
 	 * Initial configuration of the plugin.
@@ -29,7 +29,7 @@ class Amazonpolly_Activator {
 	public static function activate() {
 
 		// Flush the permalinks to enable the "amazon-pollycast" route.
-		$amazon_pollycast = new Amazonpolly_PollyCast(new AmazonAI_Common());
+		$amazon_pollycast = new Pollyaws_PollyCast(new AmazonAI_Common());
 		$amazon_pollycast->create_podcast();
 		flush_rewrite_rules();
 

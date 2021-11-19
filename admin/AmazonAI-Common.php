@@ -1301,8 +1301,8 @@ class AmazonAI_Common
 				$post_sentences = $this->break_text($clean_text);
 				if (!empty($post_sentences)) {
 					foreach($post_sentences as $sentence) {
-						$sentence = str_replace('**AMAZONPOLLY*SSML*BREAK*time=***1s***SSML**', '', $sentence);
-						$sentence = str_replace('**AMAZONPOLLY*SSML*BREAK*time=***500ms***SSML**', '', $sentence);
+						$sentence = str_replace('**POLLYAWS*SSML*BREAK*time=***1s***SSML**', '', $sentence);
+						$sentence = str_replace('**POLLYAWS*SSML*BREAK*time=***500ms***SSML**', '', $sentence);
 						$number_of_characters+= strlen($sentence);
 					}
 				}
@@ -1368,9 +1368,9 @@ class AmazonAI_Common
 	 */
 	public function break_text($text)
 	{
-		$text = str_replace('-AMAZONPOLLY-ONLYAUDIO-START-', '', $text);
-		$text = str_replace('-AMAZONPOLLY-ONLYAUDIO-END-', '', $text);
-		$text = preg_replace('/-AMAZONPOLLY-ONLYWORDS-START-[\S\s]*?-AMAZONPOLLY-ONLYWORDS-END-/', '', $text);
+		$text = str_replace('-POLLYAWS-ONLYAUDIO-START-', '', $text);
+		$text = str_replace('-POLLYAWS-ONLYAUDIO-END-', '', $text);
+		$text = preg_replace('/-POLLYAWS-ONLYWORDS-START-[\S\s]*?-POLLYAWS-ONLYWORDS-END-/', '', $text);
 		$parts = [];
 		if (!empty($text)) {
 			$part_id = 0;
@@ -1379,7 +1379,7 @@ class AmazonAI_Common
 				$paragraph_size = strlen(trim($paragraph));
 				if ($paragraph_size > 0) {
 					if ($paragraph_size <= 2800) {
-						$parts[$part_id] = $paragraph . ' **AMAZONPOLLY*SSML*BREAK*time=***500ms***SSML** ';
+						$parts[$part_id] = $paragraph . ' **POLLYAWS*SSML*BREAK*time=***500ms***SSML** ';
 						$part_id++;
 					}
 					else {
@@ -1402,7 +1402,7 @@ class AmazonAI_Common
 							}
 						}
 
-						$parts[$part_id] = $last_part . ' **AMAZONPOLLY*SSML*BREAK*time=***500ms***SSML** ';
+						$parts[$part_id] = $last_part . ' **POLLYAWS*SSML*BREAK*time=***500ms***SSML** ';
 						$part_id++;
 					} //end if
 				} //end if
@@ -1484,7 +1484,7 @@ class AmazonAI_Common
 	 */
 	public function decode_ssml_tags( $text ) {
 
-		$text = preg_replace( '/(\*\*AMAZONPOLLY\*SSML\*BREAK\*)(.*?)(\*\*\*)(.*?)(\*\*\*SSML\*\*)/', '<break $2"$4"/>', $text );
+		$text = preg_replace( '/(\*\*POLLYAWS\*SSML\*BREAK\*)(.*?)(\*\*\*)(.*?)(\*\*\*SSML\*\*)/', '<break $2"$4"/>', $text );
 
 		return $text;
 	}
@@ -1505,7 +1505,7 @@ class AmazonAI_Common
 		// Depending on the plugin configurations, post's title will be added to the audio.
 		if ($with_title) {
 			if ($this->is_title_adder_enabled()) {
-				$clean_text = get_the_title($post_id) . '. **AMAZONPOLLY*SSML*BREAK*time=***1s***SSML** ';
+				$clean_text = get_the_title($post_id) . '. **POLLYAWS*SSML*BREAK*time=***1s***SSML** ';
 			}
 		}
 
@@ -1514,7 +1514,7 @@ class AmazonAI_Common
 
 		if ($this->is_excerpt_adder_enabled()) {
 			$my_excerpt = apply_filters('the_excerpt', get_post_field('post_excerpt', $post_id));
-			$clean_text = $clean_text . $my_excerpt . ' **AMAZONPOLLY*SSML*BREAK*time=***1s***SSML** ';
+			$clean_text = $clean_text . $my_excerpt . ' **POLLYAWS*SSML*BREAK*time=***1s***SSML** ';
 		}
 
 		$clean_text = $clean_text . get_post_field('post_content', $post_id);
@@ -1632,7 +1632,7 @@ class AmazonAI_Common
 	private function add_pauses($text) {
 
 		#Creates a little pause after closes the tag <li>
-		$text = str_replace ('</li>',' **AMAZONPOLLY*SSML*BREAK*time=***300ms***SSML** </li>',$text);
+		$text = str_replace ('</li>',' **POLLYAWS*SSML*BREAK*time=***300ms***SSML** </li>',$text);
 
 		#Create a support to the tag <sub> (helpful to 'read' abreviations, for example)
 		$text = preg_replace('/<sub\b((?:(?:\s+alias="(.*?)")|[^\s>]+|\s+))*>([\s\S]*?)<\/sub>/', '$2', $text);
@@ -1648,7 +1648,7 @@ class AmazonAI_Common
 	 */
 	private function encode_ssml_tags($text)
 	{
-		$text = preg_replace('/<ssml><break ([\S\s]*?)["\'](.*?)["\'](.*?)<\/ssml>/', '**AMAZONPOLLY*SSML*BREAK*$1***$2***SSML**', $text);
+		$text = preg_replace('/<ssml><break ([\S\s]*?)["\'](.*?)["\'](.*?)<\/ssml>/', '**POLLYAWS*SSML*BREAK*$1***$2***SSML**', $text);
 		return $text;
 	}
 
@@ -1792,7 +1792,7 @@ class AmazonAI_Common
      * @since    1.0.0
      */
     public function enqueue_styles() {
-        wp_enqueue_style( 'amazon-polly', plugin_dir_url( __FILE__ ) . 'css/amazonpolly-admin.css', array(), null, 'all' );
+        wp_enqueue_style( 'amazon-polly', plugin_dir_url( __FILE__ ) . 'css/pollyaws-admin.css', array(), null, 'all' );
         wp_enqueue_style( 'font-awesome', plugin_dir_url( __FILE__ ) . 'css/all.min.css', array(), null, 'all' );
         wp_enqueue_style( 'jquery-ui-core' );
         wp_enqueue_style( 'jquery-ui-progressbar' );
@@ -1805,7 +1805,7 @@ class AmazonAI_Common
 	 * @since    1.0.0
 	 */
 	public function enqueue_scripts() {
-		wp_enqueue_script( 'amazon-polly', plugin_dir_url( __FILE__ ) . 'js/amazonpolly-admin.js', array( 'jquery' ), null, false );
+		wp_enqueue_script( 'amazon-polly', plugin_dir_url( __FILE__ ) . 'js/pollyaws-admin.js', array( 'jquery' ), null, false );
 		wp_enqueue_script( 'jquery-ui-core' );
 		wp_enqueue_script( 'jquery-ui-progressbar' );
 		$nonce_array = array(

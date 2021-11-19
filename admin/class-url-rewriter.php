@@ -7,8 +7,8 @@
  * @link       amazon.com
  * @since      4.0.0
  *
- * @package    Amazonpolly
- * @subpackage Amazonpolly/admin
+ * @package    Pollyaws
+ * @subpackage Pollyaws/admin
  */
 
 class AmazonAI_UrlRewriter

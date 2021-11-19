@@ -9,8 +9,8 @@
  * @link       amazon.com
  * @since      1.0.0
  *
- * @package    Amazonpolly
- * @subpackage Amazonpolly/includes
+ * @package    Pollyaws
+ * @subpackage Pollyaws/includes
  */
 
 /**
@@ -23,11 +23,11 @@
  * version of the plugin.
  *
  * @since      1.0.0
- * @package    Amazonpolly
- * @subpackage Amazonpolly/includes
+ * @package    Pollyaws
+ * @subpackage Pollyaws/includes
  * @author     AWS Labs
  */
-class Amazonpolly {
+class Pollyaws {
 
 	/**
 	 * The loader that's responsible for maintaining and registering all hooks that power
@@ -35,7 +35,7 @@ class Amazonpolly {
 	 *
 	 * @since    1.0.0
 	 * @access   protected
-	 * @var      Amazonpolly_Loader    $loader    Maintains and registers all hooks for the plugin.
+	 * @var      Pollyaws_Loader    $loader    Maintains and registers all hooks for the plugin.
 	 */
 	protected $loader;
 
@@ -68,7 +68,7 @@ class Amazonpolly {
 	 */
 	public function __construct() {
 
-		$this->plugin_name = 'amazonpolly';
+		$this->plugin_name = 'pollyaws';
 		$this->version     = '1.0.0';
 		$this->load_dependencies();
 
@@ -87,9 +87,9 @@ class Amazonpolly {
 	 *
 	 * Include the following files that make up the plugin:
 	 *
-	 * - Amazonpolly_Loader. Orchestrates the hooks of the plugin.
-	 * - Amazonpolly_I18n. Defines internationalization functionality.
-	 * - Amazonpolly_Public. Defines all hooks for the public side of the site.
+	 * - Pollyaws_Loader. Orchestrates the hooks of the plugin.
+	 * - Pollyaws_I18n. Defines internationalization functionality.
+	 * - Pollyaws_Public. Defines all hooks for the public side of the site.
 	 *
 	 * Create an instance of the loader which will be used to register the hooks
 	 * with WordPress.
@@ -103,13 +103,13 @@ class Amazonpolly {
 		 * The class responsible for orchestrating the actions and filters of the
 		 * core plugin.
 		 */
-		require_once plugin_dir_path(dirname(__FILE__)) . 'includes/class-amazonpolly-loader.php';
+		require_once plugin_dir_path(dirname(__FILE__)) . 'includes/class-pollyaws-loader.php';
 
 		/**
 		 * The class responsible for defining internationalization functionality
 		 * of the plugin.
 		 */
-		require_once plugin_dir_path(dirname(__FILE__)) . 'includes/class-amazonpolly-i18n.php';
+		require_once plugin_dir_path(dirname(__FILE__)) . 'includes/class-pollyaws-i18n.php';
 
 		/**
 		 * Misc. classes responsible for helping with admin requests
@@ -139,7 +139,7 @@ class Amazonpolly {
 		 * The class responsible for defining all actions that occur in the public-facing
 		 * side of the site.
 		 */
-		require_once plugin_dir_path(dirname(__FILE__)) . 'public/class-amazonpolly-public.php';
+		require_once plugin_dir_path(dirname(__FILE__)) . 'public/class-pollyaws-public.php';
 
 		/**
 		 * Class responsible for CloudFormation and associated resources
@@ -154,7 +154,7 @@ class Amazonpolly {
 		/**
 		 * The class responsible for creating the podcast feature.
 		 */
-		require_once plugin_dir_path(dirname(__FILE__)) . 'includes/class-amazonpolly-pollycast.php';
+		require_once plugin_dir_path(dirname(__FILE__)) . 'includes/class-pollyaws-pollycast.php';
 
 		/**
 		 * Load AWS PHP SDK
@@ -166,13 +166,13 @@ class Amazonpolly {
 		 */
 		require_once plugin_dir_path(dirname(__FILE__)) . 'includes/class-helper.php';
 
-		$this->loader = new Amazonpolly_Loader();
+		$this->loader = new Pollyaws_Loader();
 	}
 
 	/**
 	 * Define the locale for this plugin for internationalization.
 	 *
-	 * Uses the Amazonpolly_i18n class in order to set the domain and to register the hook
+	 * Uses the Pollyaws_i18n class in order to set the domain and to register the hook
 	 * with WordPress.
 	 *
 	 * @since    1.0.0
@@ -180,7 +180,7 @@ class Amazonpolly {
 	 */
 	private function set_locale() {
 
-		$plugin_i18n = new Amazonpolly_I18n();
+		$plugin_i18n = new Pollyaws_I18n();
 
 		$this->loader->add_action( 'plugins_loaded', $plugin_i18n, 'load_plugin_textdomain' );
 
@@ -248,7 +248,7 @@ class Amazonpolly {
 
         $this->loader->add_action( 'admin_menu', $cloudfront_configuration, 'amazon_ai_add_menu');
 
-        $plugin = plugin_basename( plugin_dir_path( dirname( __FILE__)) . 'amazonpolly.php');
+        $plugin = plugin_basename( plugin_dir_path( dirname( __FILE__)) . 'pollyaws.php');
 
         $this->loader->add_filter( 'wp_kses_allowed_html', $this->common, 'allowed_tags_kses');
         $this->loader->add_filter( 'tiny_mce_before_init', $this->common, 'allowed_tags_tinymce');
@@ -290,7 +290,7 @@ class Amazonpolly {
 	 */
 	private function define_public_hooks() {
 		// Front-end
-		$plugin_public = new Amazonpolly_Public( $this->get_plugin_name(), $this->get_version(), $this->common);
+		$plugin_public = new Pollyaws_Public( $this->get_plugin_name(), $this->get_version(), $this->common);
 
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
@@ -299,7 +299,7 @@ class Amazonpolly {
 		$this->loader->add_action( 'customize_register', $plugin_public, 'customize_register' );
 
 		// Podcast
-		$amazon_pollycast = new Amazonpolly_PollyCast($this->common);
+		$amazon_pollycast = new Pollyaws_PollyCast($this->common);
 		$this->loader->add_filter( 'pre_get_posts', $amazon_pollycast, 'filter_pre_get_posts' );
 		$this->loader->add_filter( 'the_excerpt_rss', $amazon_pollycast, 'filter_force_html_decode', 99999 );
 
@@ -339,7 +339,7 @@ class Amazonpolly {
 	 * The reference to the class that orchestrates the hooks with the plugin.
 	 *
 	 * @since     1.0.0
-	 * @return    Amazonpolly_Loader    Orchestrates the hooks of the plugin.
+	 * @return    Pollyaws_Loader    Orchestrates the hooks of the plugin.
 	 */
 	public function get_loader() {
 		return $this->loader;

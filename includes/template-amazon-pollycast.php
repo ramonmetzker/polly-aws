@@ -12,7 +12,7 @@ $more = 1;
 
 echo '<?xml version="1.0" encoding="' . esc_attr( get_option( 'blog_charset' ) ) . '"?' . '>';
 
-$amazon_pollycast = new Amazonpolly_PollyCast($amazonai_common);
+$amazon_pollycast = new Pollyaws_PollyCast($amazonai_common);
 
 /**
  * Fires between the xml and rss tags in a feed.

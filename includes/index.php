@@ -5,7 +5,7 @@
  * @link       amazon.com
  * @since      1.0.0
  *
- * @package    Amazonpolly/include
+ * @package    Pollyaws/include
  */
 
 // None.

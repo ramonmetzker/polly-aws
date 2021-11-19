@@ -5,8 +5,8 @@
  * @link       amazon.com
  * @since      4.0.0
  *
- * @package    Amazonpolly
- * @subpackage Amazonpolly/includes
+ * @package    Pollyaws
+ * @subpackage Pollyaws/includes
  */
 $desc_text_amazon_cf = 'Amazon CloudFront is a content delivery network (CDN) that has a network of hundreds of <a href="https://aws.amazon.com/cloudfront/features">edge locations</a> around the world. As visitors come to your website, CloudFront pulls content from your origin web server and caches it in edge locations closer to your visitors to provide a faster and more reliable viewing experience. See the CloudFront <a href="https://aws.amazon.com/cloudfront/pricing">pricing page</a> for more information about CloudFront\'s Free Tier offering and on-demand pricing.';
 

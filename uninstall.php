@@ -2,10 +2,10 @@
 /**
  * Fired when the plugin is uninstalled.
  *
- * @link       amazon.com
+ * @link       ramonmetzker.dev.br
  * @since      1.0.0
  *
- * @package    Awspolly
+ * @package    Pollyaws
  */
 
  // If uninstall not called from WordPress, then exit.

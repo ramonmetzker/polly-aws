@@ -5,8 +5,8 @@
  * @link       amazon.com
  * @since      4.0.0
  *
- * @package    Amazonpolly
- * @subpackage Amazonpolly/admin
+ * @package    Pollyaws
+ * @subpackage Pollyaws/admin
 **/
 
 class AmazonAI_CloudFrontConfiguration
@@ -132,7 +132,7 @@ class AmazonAI_CloudFrontConfiguration
      */
     public function display_stack_deletion_progress($display_style) {
         if (!isset($desc_text_stack_deletion_in_progress)) {
-            include plugin_dir_path( dirname( __FILE__)) . 'includes/class-amazonpolly-TextDescriptions.php';
+            include plugin_dir_path( dirname( __FILE__)) . 'includes/class-pollyaws-TextDescriptions.php';
         }
         echo '
         <div id="stack_deletion_progress_div" class="progress-table-div" style="display:'.$display_style.';"><br>
@@ -163,7 +163,7 @@ class AmazonAI_CloudFrontConfiguration
         <div class="text-content long">
         <?php
         if (!isset($desc_text_amazon_cf)) {
-            include plugin_dir_path( dirname( __FILE__)) . 'includes/class-amazonpolly-TextDescriptions.php';
+            include plugin_dir_path( dirname( __FILE__)) . 'includes/class-pollyaws-TextDescriptions.php';
         }
         echo $desc_text_amazon_cf;
         ?>
@@ -193,7 +193,7 @@ class AmazonAI_CloudFrontConfiguration
                     <div class="text-content long">
                     <?php 
                     if (!isset($desc_text_amazon_cf_origin)) {
-                        include plugin_dir_path( dirname( __FILE__)) . 'includes/class-amazonpolly-TextDescriptions.php';
+                        include plugin_dir_path( dirname( __FILE__)) . 'includes/class-pollyaws-TextDescriptions.php';
                     }
                     echo $desc_text_amazon_cf_origin;
                     ?>                        
@@ -216,7 +216,7 @@ class AmazonAI_CloudFrontConfiguration
                     <div class="text-content long">
                     <?php 
                     if (!isset($desc_text_amazon_cf_alias)) {
-                        include plugin_dir_path( dirname( __FILE__)) . 'includes/class-amazonpolly-TextDescriptions.php';
+                        include plugin_dir_path( dirname( __FILE__)) . 'includes/class-pollyaws-TextDescriptions.php';
                     }
                     echo $desc_text_amazon_cf_alias;
                     ?>                        
@@ -231,7 +231,7 @@ class AmazonAI_CloudFrontConfiguration
 
 <?php
         if (!isset($desc_text_initiate_setup)) {
-            include plugin_dir_path( dirname( __FILE__)) . 'includes/class-amazonpolly-TextDescriptions.php';
+            include plugin_dir_path( dirname( __FILE__)) . 'includes/class-pollyaws-TextDescriptions.php';
         }        
         echo '
         <div class="text-content long">'.$desc_text_initiate_setup.'</div>';
@@ -256,7 +256,7 @@ class AmazonAI_CloudFrontConfiguration
 
         if (get_option('amazon_stack_state') == 'ready') {
             if (!isset($desc_text_stack_ready)) {
-                include plugin_dir_path( dirname( __FILE__)) . 'includes/class-amazonpolly-TextDescriptions.php';
+                include plugin_dir_path( dirname( __FILE__)) . 'includes/class-pollyaws-TextDescriptions.php';
             }
             echo '
             <h3>CloudFront Distribution</h3>';
@@ -306,7 +306,7 @@ class AmazonAI_CloudFrontConfiguration
      */
     public function display_stack_details_creation() {
         if (!isset($desc_text_stack_ready)) {
-            include plugin_dir_path( dirname( __FILE__)) . 'includes/class-amazonpolly-TextDescriptions.php';
+            include plugin_dir_path( dirname( __FILE__)) . 'includes/class-pollyaws-TextDescriptions.php';
         }
         echo '
         <h3>CloudFront Distribution</h3>';
@@ -340,7 +340,7 @@ class AmazonAI_CloudFrontConfiguration
      */
     public function display_cf_creation_info($display_style) {
         if (!isset($desc_text_cf_in_progress)) {
-            include plugin_dir_path( dirname( __FILE__)) . 'includes/class-amazonpolly-TextDescriptions.php';
+            include plugin_dir_path( dirname( __FILE__)) . 'includes/class-pollyaws-TextDescriptions.php';
         }
         echo '
         <div id="desc_text_cf_in_progress_div" style="display:'.$display_style.';"><br>
@@ -357,7 +357,7 @@ class AmazonAI_CloudFrontConfiguration
      */
     public function display_delete_stack_options($display_style) {
         if (!isset($desc_text_remove_site_acceleration)) {
-            include plugin_dir_path( dirname( __FILE__)) . 'includes/class-amazonpolly-TextDescriptions.php';
+            include plugin_dir_path( dirname( __FILE__)) . 'includes/class-pollyaws-TextDescriptions.php';
         }
         echo '
         <div id="delete_stack_options_div" class="progress-table-div" style="display:'.$display_style.';"><br>
@@ -378,7 +378,7 @@ class AmazonAI_CloudFrontConfiguration
      */
     public function display_dv_dns_details($display_style) {
         if (!isset($desc_text_validate_acm_cert)) {
-            include plugin_dir_path( dirname( __FILE__)) . 'includes/class-amazonpolly-TextDescriptions.php';
+            include plugin_dir_path( dirname( __FILE__)) . 'includes/class-pollyaws-TextDescriptions.php';
         }
         echo '
         <div id="dv_dns_details_div" style="display:'.$display_style.';"><br>
@@ -417,7 +417,7 @@ class AmazonAI_CloudFrontConfiguration
      */
     public function display_cdn_alias_dns_details($display_style) {
         if (!isset($desc_text_cdn_alias_dns)) {
-            include plugin_dir_path( dirname( __FILE__)) . 'includes/class-amazonpolly-TextDescriptions.php';
+            include plugin_dir_path( dirname( __FILE__)) . 'includes/class-pollyaws-TextDescriptions.php';
         }
         echo '
         <div id="cdn_alias_dns_details_div" style="display:'.$display_style.';"><br>

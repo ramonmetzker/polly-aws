@@ -6,8 +6,8 @@
  * @link       amazon.com
  * @since      2.0.3
  *
- * @package    Amazonpolly
- * @subpackage Amazonpolly/admin
+ * @package    Pollyaws
+ * @subpackage Pollyaws/admin
  */
 
 class AmazonAI_PollyService {
@@ -481,9 +481,9 @@ class AmazonAI_PollyService {
 			$text_content = $common->decode_ssml_tags( $text_content );
 		}
 
-        $text_content = str_replace( '**AMAZONPOLLY*SSML*BREAK*time=***300ms***SSML**', '<break time="300ms"/>', $text_content );
-		$text_content = str_replace( '**AMAZONPOLLY*SSML*BREAK*time=***500ms***SSML**', '<break time="500ms"/>', $text_content );
-		$text_content = str_replace( '**AMAZONPOLLY*SSML*BREAK*time=***1s***SSML**', '<break time="500ms"/>', $text_content );
+        $text_content = str_replace( '**POLLYAWS*SSML*BREAK*time=***300ms***SSML**', '<break time="300ms"/>', $text_content );
+		$text_content = str_replace( '**POLLYAWS*SSML*BREAK*time=***500ms***SSML**', '<break time="500ms"/>', $text_content );
+		$text_content = str_replace( '**POLLYAWS*SSML*BREAK*time=***1s***SSML**', '<break time="500ms"/>', $text_content );
 
 		return $text_content;
 	}

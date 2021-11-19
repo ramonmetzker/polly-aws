@@ -5,8 +5,8 @@
  * @link       amazon.com
  * @since      4.0.0
  *
- * @package    Amazonpolly
- * @subpackage Amazonpolly/includes
+ * @package    Pollyaws
+ * @subpackage Pollyaws/includes
  */
 class Helper {
     public function log_error($filename, $message) {

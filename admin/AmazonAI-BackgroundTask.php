@@ -2,8 +2,8 @@
 /**
  * Class for running an action in the background.
  *
- * @package    Amazonpolly
- * @subpackage Amazonpolly/admin
+ * @package    Pollyaws
+ * @subpackage Pollyaws/admin
  */
 
 class AmazonAI_BackgroundTask {

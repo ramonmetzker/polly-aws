@@ -5,8 +5,8 @@
  * @link       amazon.com
  * @since      1.0.0
  *
- * @package    Amazonpolly
- * @subpackage Amazonpolly/admin
+ * @package    Pollyaws
+ * @subpackage Pollyaws/admin
  */
 
 /**
@@ -15,11 +15,11 @@
  * Defines the plugin name, version, and two examples hooks for how to
  * enqueue the admin-specific stylesheet and JavaScript.
  *
- * @package    Amazonpolly
- * @subpackage Amazonpolly/admin
+ * @package    Pollyaws
+ * @subpackage Pollyaws/admin
  * @author     AWS Labs
  */
-class Amazonpolly_Admin {
+class Pollyaws_Admin {
 
 	/**
 	 * The list of countries which are supported for translate functionality.
@@ -252,7 +252,7 @@ class Amazonpolly_Admin {
 	 * @since    1.0.0
 	 */
 	public function enqueue_styles() {
-		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/amazonpolly-admin.css', array(), $this->version, 'all' );
+		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/pollyaws-admin.css', array(), $this->version, 'all' );
 		wp_enqueue_style( 'jquery-ui-core' );
 		wp_enqueue_style( 'jquery-ui-progressbar' );
 		wp_enqueue_style( 'jquery-ui', '//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css', array(), '1.21.1', 'all' );
@@ -264,7 +264,7 @@ class Amazonpolly_Admin {
 	 * @since    1.0.0
 	 */
 	public function enqueue_scripts() {
-		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/amazonpolly-admin.js', array( 'jquery' ), $this->version, false );
+		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/pollyaws-admin.js', array( 'jquery' ), $this->version, false );
 		wp_enqueue_script( 'jquery-ui-core' );
 		wp_enqueue_script( 'jquery-ui-progressbar' );
 		$nonce_array = array(
@@ -297,7 +297,7 @@ class Amazonpolly_Admin {
 	 * @since  1.0.0
 	 */
 	public function amazon_polly_display_options_page() {
-		include_once 'partials/amazonpolly-admin-display.php';
+		include_once 'partials/pollyaws-admin-display.php';
 	}
 
 	/**
@@ -309,64 +309,64 @@ class Amazonpolly_Admin {
 
 		// ************************************************* *
 		// ***************** GENERAL SECTION **************** *
-		add_settings_section( 'amazon_polly_general', __( 'General', 'amazonpolly' ), array( $this, 'amazon_polly_general_cb' ), $this->plugin_name );
-		add_settings_field( 'amazon_polly_access_key', __( 'AWS access key:', 'amazonpolly' ), array( $this, 'amazon_polly_access_key_cb' ), $this->plugin_name, 'amazon_polly_general', array( 'label_for' => 'amazon_polly_access_key' ) );
-		add_settings_field( 'amazon_polly_secret_key', __( 'AWS secret key:', 'amazonpolly' ), array( $this, 'amazon_polly_secret_key_cb' ), $this->plugin_name, 'amazon_polly_general', array( 'label_for' => 'amazon_polly_secret_key' ) );
-		add_settings_field( 'amazon_polly_region', __( 'AWS Region:', 'amazonpolly' ), array( $this, 'amazon_polly_region_cb' ), $this->plugin_name, 'amazon_polly_general', array( 'label_for' => 'amazon_polly_region' ) );
+		add_settings_section( 'amazon_polly_general', __( 'General', 'pollyaws' ), array( $this, 'amazon_polly_general_cb' ), $this->plugin_name );
+		add_settings_field( 'amazon_polly_access_key', __( 'AWS access key:', 'pollyaws' ), array( $this, 'amazon_polly_access_key_cb' ), $this->plugin_name, 'amazon_polly_general', array( 'label_for' => 'amazon_polly_access_key' ) );
+		add_settings_field( 'amazon_polly_secret_key', __( 'AWS secret key:', 'pollyaws' ), array( $this, 'amazon_polly_secret_key_cb' ), $this->plugin_name, 'amazon_polly_general', array( 'label_for' => 'amazon_polly_secret_key' ) );
+		add_settings_field( 'amazon_polly_region', __( 'AWS Region:', 'pollyaws' ), array( $this, 'amazon_polly_region_cb' ), $this->plugin_name, 'amazon_polly_general', array( 'label_for' => 'amazon_polly_region' ) );
 
 		// ************************************************* *
 		// ***************** PLAYER SECTION **************** *
-		add_settings_section( 'amazon_polly_playersettings', __( 'Player settings', 'amazonpolly' ), array( $this, 'amazon_polly_playersettings_cb' ), $this->plugin_name );
-		add_settings_field( 'amazon_polly_position', __( 'Player position:', 'amazonpolly' ), array( $this, 'amazon_polly_position_cb' ), $this->plugin_name, 'amazon_polly_playersettings', array( 'label_for' => 'amazon_polly_position' ) );
-		add_settings_field( 'amazon_polly_player_label', __( 'Player label:', 'amazonpolly' ), array( $this, 'amazon_polly_player_label_cb' ), $this->plugin_name, 'amazon_polly_playersettings', array( 'label_for' => 'amazon_polly_player_label' ) );
-		add_settings_field( 'amazon_polly_defconf', __( 'New post default:', 'amazonpolly' ), array( $this, 'amazon_polly_defconf_cb' ), $this->plugin_name, 'amazon_polly_playersettings', array( '' => 'amazon_polly_defconf' ) );
-		add_settings_field( 'amazon_polly_autoplay', __( 'Autoplay:', 'amazonpolly' ), array( $this, 'amazon_polly_autoplay_cb' ), $this->plugin_name, 'amazon_polly_playersettings', array( 'label_for' => 'amazon_polly_autoplay' ) );
+		add_settings_section( 'amazon_polly_playersettings', __( 'Player settings', 'pollyaws' ), array( $this, 'amazon_polly_playersettings_cb' ), $this->plugin_name );
+		add_settings_field( 'amazon_polly_position', __( 'Player position:', 'pollyaws' ), array( $this, 'amazon_polly_position_cb' ), $this->plugin_name, 'amazon_polly_playersettings', array( 'label_for' => 'amazon_polly_position' ) );
+		add_settings_field( 'amazon_polly_player_label', __( 'Player label:', 'pollyaws' ), array( $this, 'amazon_polly_player_label_cb' ), $this->plugin_name, 'amazon_polly_playersettings', array( 'label_for' => 'amazon_polly_player_label' ) );
+		add_settings_field( 'amazon_polly_defconf', __( 'New post default:', 'pollyaws' ), array( $this, 'amazon_polly_defconf_cb' ), $this->plugin_name, 'amazon_polly_playersettings', array( '' => 'amazon_polly_defconf' ) );
+		add_settings_field( 'amazon_polly_autoplay', __( 'Autoplay:', 'pollyaws' ), array( $this, 'amazon_polly_autoplay_cb' ), $this->plugin_name, 'amazon_polly_playersettings', array( 'label_for' => 'amazon_polly_autoplay' ) );
 
 		// ************************************************* *
 		// ************* POLLY SETTINGS SECTION ************ *
-		add_settings_section( 'amazon_polly_pollysettings', __( 'Amazon Polly settings', 'amazonpolly' ), array( $this, 'amazon_polly_pollysettings_cb' ), $this->plugin_name );
-		add_settings_field( 'amazon_polly_sample_rate', __( 'Sample rate:', 'amazonpolly' ), array( $this, 'amazon_polly_sample_rate_cb' ), $this->plugin_name, 'amazon_polly_pollysettings', array( 'label_for' => 'amazon_polly_sample_rate' ) );
-		add_settings_field( 'amazon_polly_voice_id', __( 'Voice name:', 'amazonpolly' ), array( $this, 'amazon_polly_voice_id_cb' ), $this->plugin_name, 'amazon_polly_pollysettings', array( 'label_for' => 'amazon_polly_voice_id' ) );
-		add_settings_field( 'amazon_polly_auto_breaths', __( 'Automated breaths:', 'amazonpolly' ), array( $this, 'amazon_polly_auto_breaths_cb' ), $this->plugin_name, 'amazon_polly_pollysettings', array( 'label_for' => 'amazon_polly_auto_breaths_id' ) );
-		add_settings_field( 'amazon_polly_ssml', __( 'Enable SSML support:', 'amazonpolly' ), array( $this, 'amazon_polly_ssml_cb' ), $this->plugin_name, 'amazon_polly_pollysettings', array( 'label_for' => 'amazon_polly_ssml' ) );
-		add_settings_field( 'amazon_polly_lexicons', __( 'Lexicons:', 'amazonpolly' ), array( $this, 'amazon_polly_lexicons_cb' ), $this->plugin_name, 'amazon_polly_pollysettings', array( 'label_for' => 'amazon_polly_lexicons' ) );
-		add_settings_field( 'amazon_polly_speed', __( 'Audio speed [%]:', 'amazonpolly' ), array( $this, 'amazon_polly_speed_cb' ), $this->plugin_name, 'amazon_polly_pollysettings', array( 'label_for' => 'amazon_polly_speed' ) );
+		add_settings_section( 'amazon_polly_pollysettings', __( 'Amazon Polly settings', 'pollyaws' ), array( $this, 'amazon_polly_pollysettings_cb' ), $this->plugin_name );
+		add_settings_field( 'amazon_polly_sample_rate', __( 'Sample rate:', 'pollyaws' ), array( $this, 'amazon_polly_sample_rate_cb' ), $this->plugin_name, 'amazon_polly_pollysettings', array( 'label_for' => 'amazon_polly_sample_rate' ) );
+		add_settings_field( 'amazon_polly_voice_id', __( 'Voice name:', 'pollyaws' ), array( $this, 'amazon_polly_voice_id_cb' ), $this->plugin_name, 'amazon_polly_pollysettings', array( 'label_for' => 'amazon_polly_voice_id' ) );
+		add_settings_field( 'amazon_polly_auto_breaths', __( 'Automated breaths:', 'pollyaws' ), array( $this, 'amazon_polly_auto_breaths_cb' ), $this->plugin_name, 'amazon_polly_pollysettings', array( 'label_for' => 'amazon_polly_auto_breaths_id' ) );
+		add_settings_field( 'amazon_polly_ssml', __( 'Enable SSML support:', 'pollyaws' ), array( $this, 'amazon_polly_ssml_cb' ), $this->plugin_name, 'amazon_polly_pollysettings', array( 'label_for' => 'amazon_polly_ssml' ) );
+		add_settings_field( 'amazon_polly_lexicons', __( 'Lexicons:', 'pollyaws' ), array( $this, 'amazon_polly_lexicons_cb' ), $this->plugin_name, 'amazon_polly_pollysettings', array( 'label_for' => 'amazon_polly_lexicons' ) );
+		add_settings_field( 'amazon_polly_speed', __( 'Audio speed [%]:', 'pollyaws' ), array( $this, 'amazon_polly_speed_cb' ), $this->plugin_name, 'amazon_polly_pollysettings', array( 'label_for' => 'amazon_polly_speed' ) );
 
 		// ************************************************* *
 		// ************** STORAGE SECTION ************** *
-		add_settings_section( 'amazon_polly_storage', __( 'Cloud storage', 'amazonpolly' ), array( $this, 'amazon_polly_storage_cb' ), $this->plugin_name );
-		add_settings_field( 'amazon_polly_s3', __( 'Store audio in Amazon S3:', 'amazonpolly' ), array( $this, 'amazon_polly_s3_cb' ), $this->plugin_name, 'amazon_polly_storage', array( 'label_for' => 'amazon_polly_s3' ) );
-		add_settings_field( 'amazon_polly_cloudfront', __( 'Amazon CloudFront (CDN) domain name:', 'amazonpolly' ), array( $this, 'amazon_polly_cloudfront_cb' ), $this->plugin_name, 'amazon_polly_storage', array( 'label_for' => 'amazon_polly_cloudfront' ) );
+		add_settings_section( 'amazon_polly_storage', __( 'Cloud storage', 'pollyaws' ), array( $this, 'amazon_polly_storage_cb' ), $this->plugin_name );
+		add_settings_field( 'amazon_polly_s3', __( 'Store audio in Amazon S3:', 'pollyaws' ), array( $this, 'amazon_polly_s3_cb' ), $this->plugin_name, 'amazon_polly_storage', array( 'label_for' => 'amazon_polly_s3' ) );
+		add_settings_field( 'amazon_polly_cloudfront', __( 'Amazon CloudFront (CDN) domain name:', 'pollyaws' ), array( $this, 'amazon_polly_cloudfront_cb' ), $this->plugin_name, 'amazon_polly_storage', array( 'label_for' => 'amazon_polly_cloudfront' ) );
 
 		// ************************************************* *
 		// ************** PODCAST SECTION ************** *
-		add_settings_section( 'amazon_polly_podcast', __( 'Amazon Pollycast', 'amazonpolly' ), array( $this, 'amazon_pollycast_cb' ), $this->plugin_name );
-		add_settings_field( 'amazon_polly_podcast_enabled', __( 'Pollycast enabled:', 'amazonpolly' ), array( $this, 'amazon_polly_podcast_enabled_cb' ), $this->plugin_name, 'amazon_polly_podcast', array( 'label_for' => 'amazon_polly_podcast_enabled' ) );
-		add_settings_field( 'amazon_polly_podcast_email', __( 'iTunes contact email:', 'amazonpolly' ), array( $this, 'amazon_polly_podcast_email_cb' ), $this->plugin_name, 'amazon_polly_podcast', array( 'label_for' => 'amazon_polly_podcast_email' ) );
-		add_settings_field( 'amazon_polly_podcast_category', __( 'iTunes category:', 'amazonpolly' ), array( $this, 'amazon_polly_podcast_category_cb' ), $this->plugin_name, 'amazon_polly_podcast', array( 'label_for' => 'amazon_polly_podcast_category' ) );
-		add_settings_field( 'amazon_polly_podcast_explicit', __( 'iTunes explicit content:', 'amazonpolly' ), array( $this, 'amazon_polly_podcast_explicit_cb' ), $this->plugin_name, 'amazon_polly_podcast', array( 'label_for' => 'amazon_polly_podcast_explicit' ) );
-		add_settings_field( 'amazon_polly_podcast_icon', __( 'iTunes image:', 'amazonpolly' ), array( $this, 'amazon_polly_podcast_icon_cb' ), $this->plugin_name, 'amazon_polly_podcast', array( 'label_for' => 'amazon_polly_podcast_icon' ) );
-		add_settings_field( 'amazon_polly_podcast_feedsize', __( 'Feed size:', 'amazonpolly' ), array( $this, 'amazon_polly_podcast_feedsize_cb' ), $this->plugin_name, 'amazon_polly_podcast', array( 'label_for' => 'amazon_polly_podcast_feedsize' ) );
-		add_settings_field( 'amazon_polly_podcast_post_cat', __( 'Post categories:', 'amazonpolly' ), array( $this, 'amazon_polly_podcast_post_cat_cb' ), $this->plugin_name, 'amazon_polly_podcast', array( 'label_for' => 'amazon_polly_podcast_post_cat' ) );
-		add_settings_field( 'amazon_polly_podcast_https', __( 'Use HTTPS for audio files:', 'amazonpolly' ), array( $this, 'amazon_polly_podcast_https_cb' ), $this->plugin_name, 'amazon_polly_podcast', array( 'label_for' => 'amazon_polly_podcast_https' ) );
+		add_settings_section( 'amazon_polly_podcast', __( 'Amazon Pollycast', 'pollyaws' ), array( $this, 'amazon_pollycast_cb' ), $this->plugin_name );
+		add_settings_field( 'amazon_polly_podcast_enabled', __( 'Pollycast enabled:', 'pollyaws' ), array( $this, 'amazon_polly_podcast_enabled_cb' ), $this->plugin_name, 'amazon_polly_podcast', array( 'label_for' => 'amazon_polly_podcast_enabled' ) );
+		add_settings_field( 'amazon_polly_podcast_email', __( 'iTunes contact email:', 'pollyaws' ), array( $this, 'amazon_polly_podcast_email_cb' ), $this->plugin_name, 'amazon_polly_podcast', array( 'label_for' => 'amazon_polly_podcast_email' ) );
+		add_settings_field( 'amazon_polly_podcast_category', __( 'iTunes category:', 'pollyaws' ), array( $this, 'amazon_polly_podcast_category_cb' ), $this->plugin_name, 'amazon_polly_podcast', array( 'label_for' => 'amazon_polly_podcast_category' ) );
+		add_settings_field( 'amazon_polly_podcast_explicit', __( 'iTunes explicit content:', 'pollyaws' ), array( $this, 'amazon_polly_podcast_explicit_cb' ), $this->plugin_name, 'amazon_polly_podcast', array( 'label_for' => 'amazon_polly_podcast_explicit' ) );
+		add_settings_field( 'amazon_polly_podcast_icon', __( 'iTunes image:', 'pollyaws' ), array( $this, 'amazon_polly_podcast_icon_cb' ), $this->plugin_name, 'amazon_polly_podcast', array( 'label_for' => 'amazon_polly_podcast_icon' ) );
+		add_settings_field( 'amazon_polly_podcast_feedsize', __( 'Feed size:', 'pollyaws' ), array( $this, 'amazon_polly_podcast_feedsize_cb' ), $this->plugin_name, 'amazon_polly_podcast', array( 'label_for' => 'amazon_polly_podcast_feedsize' ) );
+		add_settings_field( 'amazon_polly_podcast_post_cat', __( 'Post categories:', 'pollyaws' ), array( $this, 'amazon_polly_podcast_post_cat_cb' ), $this->plugin_name, 'amazon_polly_podcast', array( 'label_for' => 'amazon_polly_podcast_post_cat' ) );
+		add_settings_field( 'amazon_polly_podcast_https', __( 'Use HTTPS for audio files:', 'pollyaws' ), array( $this, 'amazon_polly_podcast_https_cb' ), $this->plugin_name, 'amazon_polly_podcast', array( 'label_for' => 'amazon_polly_podcast_https' ) );
 
 		// ************************************************* *
 		// ************** ADDITIONAL SECTION ************** *
-		add_settings_section( 'amazon_polly_additional', __( 'Additional configuration', 'amazonpolly' ), array( $this, 'amazon_polly_additional_cb' ), $this->plugin_name );
-		add_settings_field( 'amazon_polly_update_all', __( 'Bulk update all posts:', 'amazonpolly' ), array( $this, 'amazon_polly_update_all_cb' ), $this->plugin_name, 'amazon_polly_additional', array( 'label_for' => 'amazon_polly_update_all' ) );
-		add_settings_field( 'amazon_polly_add_post_title', __( 'Add post title to audio:', 'amazonpolly' ), array( $this, 'amazon_polly_add_post_title_cb' ), $this->plugin_name, 'amazon_polly_additional', array( 'label_for' => 'amazon_polly_add_post_title' ) );
-		add_settings_field( 'amazon_polly_add_post_excerpt', __( 'Add post excerpt to audio:', 'amazonpolly' ), array( $this, 'amazon_polly_add_post_excerpt_cb' ), $this->plugin_name, 'amazon_polly_additional', array( 'label_for' => 'amazon_polly_add_post_excerpt' ) );
-		add_settings_field( 'amazon_polly_posttypes', __( 'Post types:', 'amazonpolly' ), array( $this, 'amazon_polly_posttypes_cb' ), $this->plugin_name, 'amazon_polly_additional', array( 'label_for' => 'amazon_polly_posttypes' ) );
+		add_settings_section( 'amazon_polly_additional', __( 'Additional configuration', 'pollyaws' ), array( $this, 'amazon_polly_additional_cb' ), $this->plugin_name );
+		add_settings_field( 'amazon_polly_update_all', __( 'Bulk update all posts:', 'pollyaws' ), array( $this, 'amazon_polly_update_all_cb' ), $this->plugin_name, 'amazon_polly_additional', array( 'label_for' => 'amazon_polly_update_all' ) );
+		add_settings_field( 'amazon_polly_add_post_title', __( 'Add post title to audio:', 'pollyaws' ), array( $this, 'amazon_polly_add_post_title_cb' ), $this->plugin_name, 'amazon_polly_additional', array( 'label_for' => 'amazon_polly_add_post_title' ) );
+		add_settings_field( 'amazon_polly_add_post_excerpt', __( 'Add post excerpt to audio:', 'pollyaws' ), array( $this, 'amazon_polly_add_post_excerpt_cb' ), $this->plugin_name, 'amazon_polly_additional', array( 'label_for' => 'amazon_polly_add_post_excerpt' ) );
+		add_settings_field( 'amazon_polly_posttypes', __( 'Post types:', 'pollyaws' ), array( $this, 'amazon_polly_posttypes_cb' ), $this->plugin_name, 'amazon_polly_additional', array( 'label_for' => 'amazon_polly_posttypes' ) );
 
 		// ************************************************* *
 		// ************** TRANSLATION SECTION ************** *
-		add_settings_section( 'amazon_polly_trans', __( 'Amazon Translate configuration', 'amazonpolly' ), array( $this, 'amazon_polly_trans_cb' ), $this->plugin_name );
-		add_settings_field( 'amazon_polly_trans_enabled', __( 'Enable translation support:', 'amazonpolly' ), array( $this, 'amazon_polly_trans_enabled_cb' ), $this->plugin_name, 'amazon_polly_trans', array( 'label_for' => 'amazon_polly_trans_enabled' ) );
-		add_settings_field( 'amazon_polly_transcript_enabled', __( 'Show transcript:', 'amazonpolly' ), array( $this, 'amazon_polly_transcript_enabled_cb' ), $this->plugin_name, 'amazon_polly_trans', array( 'label_for' => 'amazon_polly_transcript_enabled' ) );
-		add_settings_field( 'amazon_polly_trans_src_lang', __( 'Source language:', 'amazonpolly' ), array( $this, 'amazon_polly_trans_src_lang_cb' ), $this->plugin_name, 'amazon_polly_trans', array( 'label_for' => 'amazon_polly_trans_src_lang' ) );
-		add_settings_field( 'amazon_polly_trans_langs_src_label', __( 'Source language label:', 'amazonpolly' ), array( $this, 'amazon_polly_trans_langs_src_label_cb' ), $this->plugin_name, 'amazon_polly_trans', array( 'label_for' => 'amazon_polly_trans_langs_src_label' ) );
-		add_settings_field( 'amazon_polly_trans_langs_label', __( 'Translations label:', 'amazonpolly' ), array( $this, 'amazon_polly_trans_langs_label_cb' ), $this->plugin_name, 'amazon_polly_trans', array( 'label_for' => 'amazon_polly_trans_langs_label' ) );
-		add_settings_field( 'amazon_polly_trans_langs', __( 'Target languages:', 'amazonpolly' ), array( $this, 'amazon_polly_trans_langs_cb' ), $this->plugin_name, 'amazon_polly_trans', array( 'label_for' => 'amazon_polly_trans_langs' ) );
+		add_settings_section( 'amazon_polly_trans', __( 'Amazon Translate configuration', 'pollyaws' ), array( $this, 'amazon_polly_trans_cb' ), $this->plugin_name );
+		add_settings_field( 'amazon_polly_trans_enabled', __( 'Enable translation support:', 'pollyaws' ), array( $this, 'amazon_polly_trans_enabled_cb' ), $this->plugin_name, 'amazon_polly_trans', array( 'label_for' => 'amazon_polly_trans_enabled' ) );
+		add_settings_field( 'amazon_polly_transcript_enabled', __( 'Show transcript:', 'pollyaws' ), array( $this, 'amazon_polly_transcript_enabled_cb' ), $this->plugin_name, 'amazon_polly_trans', array( 'label_for' => 'amazon_polly_transcript_enabled' ) );
+		add_settings_field( 'amazon_polly_trans_src_lang', __( 'Source language:', 'pollyaws' ), array( $this, 'amazon_polly_trans_src_lang_cb' ), $this->plugin_name, 'amazon_polly_trans', array( 'label_for' => 'amazon_polly_trans_src_lang' ) );
+		add_settings_field( 'amazon_polly_trans_langs_src_label', __( 'Source language label:', 'pollyaws' ), array( $this, 'amazon_polly_trans_langs_src_label_cb' ), $this->plugin_name, 'amazon_polly_trans', array( 'label_for' => 'amazon_polly_trans_langs_src_label' ) );
+		add_settings_field( 'amazon_polly_trans_langs_label', __( 'Translations label:', 'pollyaws' ), array( $this, 'amazon_polly_trans_langs_label_cb' ), $this->plugin_name, 'amazon_polly_trans', array( 'label_for' => 'amazon_polly_trans_langs_label' ) );
+		add_settings_field( 'amazon_polly_trans_langs', __( 'Target languages:', 'pollyaws' ), array( $this, 'amazon_polly_trans_langs_cb' ), $this->plugin_name, 'amazon_polly_trans', array( 'label_for' => 'amazon_polly_trans_langs' ) );
 
 		add_option( 'amazon_polly_trans_validated' );
 
@@ -487,7 +487,7 @@ class Amazonpolly_Admin {
 
 		// Depending on the plugin configurations, post's title will be added to the audio.
 		if ( $this->amazon_polly_is_title_adder_enabled() ) {
-			$clean_text = get_the_title( $post_id ) . '. **AMAZONPOLLY*SSML*BREAK*time=***1s***SSML** ';
+			$clean_text = get_the_title( $post_id ) . '. **POLLYAWS*SSML*BREAK*time=***1s***SSML** ';
 		} else {
 			$clean_text = '';
 		}
@@ -495,7 +495,7 @@ class Amazonpolly_Admin {
 		// Depending on the plugin configurations, post's excerpt will be added to the audio.
 		if ( $this->amazon_polly_is_excerpt_adder_enabled() ) {
 			$my_excerpt = apply_filters('the_excerpt', get_post_field('post_excerpt', $post_id));
-			$clean_text = $clean_text . $my_excerpt . ' **AMAZONPOLLY*SSML*BREAK*time=***1s***SSML** ';
+			$clean_text = $clean_text . $my_excerpt . ' **POLLYAWS*SSML*BREAK*time=***1s***SSML** ';
 		}
 
 		$clean_text = $clean_text . get_post_field( 'post_content', $post_id );
@@ -513,9 +513,9 @@ class Amazonpolly_Admin {
 		$clean_text = str_replace( '&nbsp;', ' ', $clean_text );
 		$clean_text = preg_replace("/https:\/\/([^\s]+)/", "", $clean_text);
 
-		// $clean_text = str_replace( '-AMAZONPOLLY-ONLYAUDIO-START-', '', $clean_text );
-		// $clean_text = str_replace( '-AMAZONPOLLY-ONLYAUDIO-END-', '', $clean_text );
-		// $clean_text = preg_replace( '/-AMAZONPOLLY-ONLYWORDS-START-[\S\s]*?-AMAZONPOLLY-ONLYWORDS-END-/', '', $clean_text );
+		// $clean_text = str_replace( '-POLLYAWS-ONLYAUDIO-START-', '', $clean_text );
+		// $clean_text = str_replace( '-POLLYAWS-ONLYAUDIO-END-', '', $clean_text );
+		// $clean_text = preg_replace( '/-POLLYAWS-ONLYWORDS-START-[\S\s]*?-POLLYAWS-ONLYWORDS-END-/', '', $clean_text );
 		$clean_text_temp = '';
 		$paragraphs      = explode( "\n", $clean_text );
 		foreach ( $paragraphs as $paragraph ) {
@@ -543,9 +543,9 @@ class Amazonpolly_Admin {
 	 */
 	private function break_text( $text ) {
 
-		$text = str_replace( '-AMAZONPOLLY-ONLYAUDIO-START-', '', $text );
-		$text = str_replace( '-AMAZONPOLLY-ONLYAUDIO-END-', '', $text );
-		$text = preg_replace( '/-AMAZONPOLLY-ONLYWORDS-START-[\S\s]*?-AMAZONPOLLY-ONLYWORDS-END-/', '', $text );
+		$text = str_replace( '-POLLYAWS-ONLYAUDIO-START-', '', $text );
+		$text = str_replace( '-POLLYAWS-ONLYAUDIO-END-', '', $text );
+		$text = preg_replace( '/-POLLYAWS-ONLYWORDS-START-[\S\s]*?-POLLYAWS-ONLYWORDS-END-/', '', $text );
 
 		$parts = [];
 
@@ -558,7 +558,7 @@ class Amazonpolly_Admin {
 				if ( $paragraph_size > 0 ) {
 
 					if ( $paragraph_size <= 2800 ) {
-						$parts[ $part_id ] = $paragraph . ' **AMAZONPOLLY*SSML*BREAK*time=***500ms***SSML** ';
+						$parts[ $part_id ] = $paragraph . ' **POLLYAWS*SSML*BREAK*time=***500ms***SSML** ';
 						$part_id++;
 					} else {
 
@@ -581,7 +581,7 @@ class Amazonpolly_Admin {
 							}
 						}
 
-						$parts[ $part_id ] = $last_part . ' **AMAZONPOLLY*SSML*BREAK*time=***500ms***SSML** ';
+						$parts[ $part_id ] = $last_part . ' **POLLYAWS*SSML*BREAK*time=***500ms***SSML** ';
 						$part_id++;
 
 					}//end if
@@ -681,8 +681,8 @@ class Amazonpolly_Admin {
 			if ( $is_ssml_enabled ) {
 				$text_content = $this->amazon_polly_decode_ssml_tags( $text_content );
 			}
-			$text_content = str_replace( '**AMAZONPOLLY*SSML*BREAK*time=***500ms***SSML**', '<break time="500ms"/>', $text_content );
-			$text_content = str_replace( '**AMAZONPOLLY*SSML*BREAK*time=***1s***SSML**', '<break time="500ms"/>', $text_content );
+			$text_content = str_replace( '**POLLYAWS*SSML*BREAK*time=***500ms***SSML**', '<break time="500ms"/>', $text_content );
+			$text_content = str_replace( '**POLLYAWS*SSML*BREAK*time=***1s***SSML**', '<break time="500ms"/>', $text_content );
 
 			$amazon_polly_mark_value = 'wp-plugin-awslabs';
 			$amazon_polly_mark_value = apply_filters( 'amazon_polly_mark_value', $amazon_polly_mark_value );
@@ -2012,7 +2012,7 @@ class Amazonpolly_Admin {
 
 		if ( $this->amazon_polly_is_ok() ) {
 			if ( $this->amazon_polly_is_podcast_enabled() ) {
-				$query['autofocus[section]'] = 'amazonpolly';
+				$query['autofocus[section]'] = 'pollyaws';
 				$section_link                = add_query_arg( $query, admin_url( 'customize.php' ) );
 				echo '<p>Upload a podcast icon using the <a target="_blank" href="' . esc_url( $section_link ) . '">Customizer</a>.</p>';
 			} else {
@@ -2117,8 +2117,8 @@ class Amazonpolly_Admin {
 				$post_sentences = $this->break_text( $clean_text );
 				if ( ! empty( $post_sentences ) ) {
 					foreach ( $post_sentences as $sentence ) {
-						$sentence              = str_replace( '**AMAZONPOLLY*SSML*BREAK*time=***1s***SSML**', '', $sentence );
-						$sentence              = str_replace( '**AMAZONPOLLY*SSML*BREAK*time=***500ms***SSML**', '', $sentence );
+						$sentence              = str_replace( '**POLLYAWS*SSML*BREAK*time=***1s***SSML**', '', $sentence );
+						$sentence              = str_replace( '**POLLYAWS*SSML*BREAK*time=***500ms***SSML**', '', $sentence );
 						$number_of_characters += strlen( $sentence );
 					}
 				}
@@ -2361,7 +2361,7 @@ class Amazonpolly_Admin {
 	 * @param  string $links A list of plugin action links.
 	 */
 	public function plugin_add_settings_link( $links ) {
-		$settings_link = '<a href="options-general.php?page=amazonpolly">' . __( 'Settings' ) . '</a>';
+		$settings_link = '<a href="options-general.php?page=pollyaws">' . __( 'Settings' ) . '</a>';
 		array_unshift( $links, $settings_link );
 		return $links;
 	}
@@ -2468,7 +2468,7 @@ class Amazonpolly_Admin {
 	 */
 	private function amazon_polly_encode_ssml_tags( $text ) {
 
-		$text = preg_replace( '/<ssml><break ([\S\s]*?)["\'](.*?)["\'](.*?)<\/ssml>/', '**AMAZONPOLLY*SSML*BREAK*$1***$2***SSML**', $text );
+		$text = preg_replace( '/<ssml><break ([\S\s]*?)["\'](.*?)["\'](.*?)<\/ssml>/', '**POLLYAWS*SSML*BREAK*$1***$2***SSML**', $text );
 
 		return $text;
 	}
@@ -2481,7 +2481,7 @@ class Amazonpolly_Admin {
 	 */
 	private function amazon_polly_decode_ssml_tags( $text ) {
 
-		$text = preg_replace( '/(\*\*AMAZONPOLLY\*SSML\*BREAK\*)(.*?)(\*\*\*)(.*?)(\*\*\*SSML\*\*)/', '<break $2"$4"/>', $text );
+		$text = preg_replace( '/(\*\*POLLYAWS\*SSML\*BREAK\*)(.*?)(\*\*\*)(.*?)(\*\*\*SSML\*\*)/', '<break $2"$4"/>', $text );
 
 		return $text;
 	}
