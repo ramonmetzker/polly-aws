@@ -139,7 +139,7 @@ class Pollyaws_Public {
 				$voice_by_part = '';
 				if ( $common->is_poweredby_enabled() ) {
 					if ( is_singular() ) {
-						$image  = __('<img src="https://d12ee1u74lotna.cloudfront.net/images/Voiced_by_Amazon_Polly_EN.png" width="100" alt="Voiced by Amazon Polly" >', $this->plugin_name);
+						$image  = __('<img src="https://github.com/ramonmetzker/polly-aws/raw/master/public/images/powered_by_mobister_aws.png" width="100" alt="Voiced by Amazon Polly" >', $this->plugin_name);
 					/**
 					 * Filters the voiced by Polly image HTML
 					 *
